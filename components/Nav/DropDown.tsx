@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 // assets
-import { TextAnimateLi, useTextAnimate } from '../../assets/hooks/useTextAnimate';
+import useAnimate from '../../assets/hooks/useAnimate';
 import viewport from '../../viewportSizes';
+
+// components
+import { StyledAnimateLi } from '../AnimateComponents';
 
 const StyledList = styled.ul`
   display: flex;
@@ -23,7 +26,7 @@ interface DropDownMenuProps {
 }
 
 const DropDownMenu = ({ className, hamIsActive, menuItems }: DropDownMenuProps) => {
-  const data = useTextAnimate(menuItems.map((itemName) => {
+  const data = useAnimate(menuItems.map((itemName) => {
     return { name: itemName, isActive: true};
   }));
 
@@ -37,7 +40,7 @@ const DropDownMenu = ({ className, hamIsActive, menuItems }: DropDownMenuProps) 
       <StyledList>
         {data.content.map((item: itemProps, index: number) => {
           return (
-            <TextAnimateLi
+            <StyledAnimateLi
               key={index}
               onMouseEnter={() => data.setOneActive(item.name)}
               onMouseLeave={() => data.setAllActive()}
@@ -45,7 +48,7 @@ const DropDownMenu = ({ className, hamIsActive, menuItems }: DropDownMenuProps) 
               index={index}
             >
               {item.name}
-            </TextAnimateLi>
+            </StyledAnimateLi>
           );
         })}
       </StyledList>

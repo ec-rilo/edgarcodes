@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 // Assets
-import { TextAnimateLi, useTextAnimate } from '../../assets/hooks/useTextAnimate';
+import useAnimate from '../../assets/hooks/useAnimate';
 import viewport from '../../viewportSizes';
 
 // Components
 import StyledLogo from '../Logo';
 import StyledHamBtnContainer from './HamBtnCont';
 import StyledDropDownMenu from './DropDown';
-
+import { StyledAnimateLi } from '../AnimateComponents';
 
 interface MenuContainerProps {
   readonly className?: string;
@@ -17,7 +17,7 @@ interface MenuContainerProps {
 }
 
 const MenuContainer = ({ className, menuItems }: MenuContainerProps) => {
-  const data = useTextAnimate(menuItems.map((itemName) => {
+  const data = useAnimate(menuItems.map((itemName) => {
     return { name: itemName, isActive: true};
   }));
 
@@ -30,7 +30,7 @@ const MenuContainer = ({ className, menuItems }: MenuContainerProps) => {
     <ul className={className}>
       {data.content.map((item: itemProps, index: number) => {
         return (
-          <TextAnimateLi
+          <StyledAnimateLi
             key={index}
             onMouseEnter={() => data.setOneActive(item.name)}
             onMouseLeave={() => data.setAllActive()}
@@ -38,7 +38,7 @@ const MenuContainer = ({ className, menuItems }: MenuContainerProps) => {
             index={index}
           >
             {item.name}
-          </TextAnimateLi>
+          </StyledAnimateLi>
         );
       })}
     </ul>
