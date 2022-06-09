@@ -4,10 +4,10 @@ import styled from 'styled-components';
 import viewport from '../viewportSizes';
 
 interface StyledContainerProps {
-  readonly noPadding: boolean;
-  readonly fullPadding: boolean;
-  readonly noWidth: boolean;
-  readonly noPosition: boolean;
+  readonly noPadding?: boolean;
+  readonly fullPadding?: boolean;
+  readonly noWidth?: boolean;
+  readonly noPosition?: boolean;
 }
 
 const StyledContainer = styled.div<StyledContainerProps>`
