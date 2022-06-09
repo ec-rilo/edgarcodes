@@ -5,43 +5,7 @@ import styled from 'styled-components';
 import { TextAnimateLi, useTextAnimate } from '../../assets/hooks/useTextAnimate';
 import viewport from '../../viewportSizes';
 
-interface DropDownContentProps {
-  className?: string;
-}
-
-const DropDownContent = ({ className }: DropDownContentProps) => {
-  const data = useTextAnimate([
-    { name: 'WORK', isActive: true },
-    { name: 'ABOUT', isActive: true },
-    { name: 'CONTACT', isActive: true },
-    { name: 'CV', isActive: true },
-  ]);
-
-  interface itemProps {
-    name: string;
-    isActive: boolean;
-  }
-
-  return (
-    <ul className={className}>
-      {data.content.map((item: itemProps, index: number) => {
-        return (
-          <TextAnimateLi
-            key={index}
-            onMouseEnter={() => data.setOneActive(item.name)}
-            onMouseLeave={() => data.setAllActive()}
-            content={data.content}
-            index={index}
-          >
-            {item.name}
-          </TextAnimateLi>
-        );
-      })}
-    </ul>
-  );
-};
-
-const StyledDropDownContent = styled(DropDownContent)`
+const StyledList = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -55,12 +19,36 @@ const StyledDropDownContent = styled(DropDownContent)`
 interface DropDownMenuProps {
   className?: string;
   hamIsActive: boolean;
+  menuItems: string[];
 }
 
-const DropDownMenu = ({ className, hamIsActive }: DropDownMenuProps) => {
+const DropDownMenu = ({ className, hamIsActive, menuItems }: DropDownMenuProps) => {
+  const data = useTextAnimate(menuItems.map((itemName) => {
+    return { name: itemName, isActive: true};
+  }));
+
+  interface itemProps {
+    name: string;
+    isActive: boolean;
+  }
+
   return (
     <div className={className}>
-      <StyledDropDownContent />
+      <StyledList>
+        {data.content.map((item: itemProps, index: number) => {
+          return (
+            <TextAnimateLi
+              key={index}
+              onMouseEnter={() => data.setOneActive(item.name)}
+              onMouseLeave={() => data.setAllActive()}
+              content={data.content}
+              index={index}
+            >
+              {item.name}
+            </TextAnimateLi>
+          );
+        })}
+      </StyledList>
     </div>
   );
 };
