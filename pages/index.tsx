@@ -5,7 +5,7 @@ import styles from '../styles/Home.module.css'
 
 // Components
 import Container from '../components/Container';
-import StyledNavCont from '../components/NavBar';
+import StyledNavCont from '../components/Nav/NavBar';
 
 const Home: NextPage = () => {
   return (
