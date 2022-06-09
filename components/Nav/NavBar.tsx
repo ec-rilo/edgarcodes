@@ -4,6 +4,7 @@ import styled from 'styled-components';
 // Components
 import StyledLogo from '../Logo';
 import StyledHamBtnContainer from './HamBtnCont';
+import StyledDropDownMenu from './DropDown';
 
 interface NavProps {
   className?: string,
@@ -40,6 +41,7 @@ const NavCont = ({ className }: NavContProps) => {
   return (
     <div className={className}>
       <StyledNav setHamIsActive={setHamIsActive} />
+      <StyledDropDownMenu hamIsActive={hamIsActive} />
     </div>
   );
 };
