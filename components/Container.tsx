@@ -8,11 +8,11 @@ interface StyledContainerProps {
   readonly fullPadding?: boolean;
   readonly noWidth?: boolean;
   readonly noPosition?: boolean;
-}
+};
 
 const StyledContainer = styled.div<StyledContainerProps>`
   position: relative;
-  max-width: 2000px;
+  max-width: 2300px;
   margin: auto;
   padding: 0 20px;
 
