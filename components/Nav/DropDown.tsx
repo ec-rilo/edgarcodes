@@ -42,7 +42,7 @@ const DropDownMenu = ({ className, hamIsActive, menuItems }: DropDownMenuProps) 
           return (
             <StyledAnimateLi
               key={index}
-              onMouseEnter={() => data.setOneActive(item.name)}
+              onMouseEnter={() => data.setOneActive(index)}
               onMouseLeave={() => data.setAllActive()}
               content={data.content}
               index={index}
