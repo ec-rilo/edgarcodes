@@ -5,6 +5,7 @@ import Head from 'next/head'
 import StyledContainer from '../components/Container';
 import StyledNavCont from '../components/Nav/NavBar';
 import StyledLandingPage from './LandingPage';
+import StyledSkillsPage from './SkillsPage';
 
 const Home: NextPage = () => {
   return (
@@ -16,6 +17,7 @@ const Home: NextPage = () => {
       </Head>
       <StyledNavCont />
       <StyledLandingPage />
+      <StyledSkillsPage />
     </StyledContainer>
   )
 }
