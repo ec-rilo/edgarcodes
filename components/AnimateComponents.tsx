@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import styled from 'styled-components';
 
 interface ContentProps {
@@ -10,7 +11,7 @@ interface AnimateProps {
   readonly index: number;
 };
 
-const StyledAnimateImg = styled.img`
+const StyledAnimateImg = styled(Image)<AnimateProps>`
   opacity: 1;
   transition: opacity 0.2s;
   cursor: pointer;
