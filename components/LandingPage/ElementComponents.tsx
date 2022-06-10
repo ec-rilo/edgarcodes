@@ -55,7 +55,7 @@ const StyledTitle = styled.h1`
   }
 `;
 
-const StyledSection = styled.article`
+const StyledSection = styled.section`
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -63,10 +63,22 @@ const StyledSection = styled.article`
   font-size: 1rem;
 `;
 
+const StyledPageTitle = styled.h2`
+  font-size: 2.5rem;
+  color: var(--clr-gainsboro);
+  font-family: var(--fnt-bld);
+  margin: 30px 0;
+
+  @media (${viewport.xl}) {
+    font-size: 3rem;
+  }
+`;
+
 export {
   StyledEmphasisWord,
   StyledParagraph,
   StyledSection,
   StyledSubTitle,
-  StyledTitle
+  StyledTitle,
+  StyledPageTitle,
 }
