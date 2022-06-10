@@ -6,6 +6,7 @@ import styles from '../styles/Home.module.css'
 // Components
 import StyledContainer from '../components/Container';
 import StyledNavCont from '../components/Nav/NavBar';
+import StyledLandingPage from './LandingPage';
 
 const Home: NextPage = () => {
   return (
@@ -16,6 +17,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <StyledNavCont />
+      <StyledLandingPage />
     </StyledContainer>
   )
 }
