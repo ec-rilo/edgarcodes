@@ -34,6 +34,7 @@ const StyledParagraph = styled.p`
   font-family: var(--fnt-regular);
   color: var(--clr-gainsboro);
   font-size: 1.1rem;
+  line-height: 1.5rem;
 `;
 
 const StyledTitle = styled.h1`
@@ -74,6 +75,33 @@ const StyledPageTitle = styled.h2`
   }
 `;
 
+const StyledEmphasisBtn = styled.p`
+  display: inline-block;
+  color: var(--clr-gainsboro);
+  font-family: var(--fnt-dark);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: color 250ms ease-in-out;
+
+  &:after {
+    display: block;
+    content: ' ';
+    padding-bottom: 5px;
+    border-bottom: 2px solid var(--clr-gainsboro);
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out, border 250ms ease-in-out;
+  }
+
+  &:hover:after {
+    transform: scaleX(1);
+    border-bottom: 2px solid var(--clr-amber);
+  }
+
+  &:hover {
+    color: var(--clr-amber);
+  }
+`;
+
 export {
   StyledEmphasisWord,
   StyledParagraph,
@@ -81,4 +109,5 @@ export {
   StyledSubTitle,
   StyledTitle,
   StyledPageTitle,
-}
+  StyledEmphasisBtn,
+};
