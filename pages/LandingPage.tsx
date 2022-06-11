@@ -58,7 +58,7 @@ function LandingPage ({ className }: LandingPageProps) {
       </StyledImgContainer>
     </div>
   )
-}
+};
 
 const StyledLandingPage = styled(LandingPage)`
   background-color: var(--clr-onyx);
