@@ -12,7 +12,7 @@ interface StyledContainerProps {
 
 const StyledContainer = styled.div<StyledContainerProps>`
   position: relative;
-  max-width: 2300px;
+  max-width: 2200px;
   margin: auto;
   padding: 0 20px;
 
