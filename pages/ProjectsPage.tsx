@@ -83,7 +83,6 @@ const ProjectsPage = () => {
 
       <StyledProjectsContainer>
         {projects.map((projectData, index) => {
-          console.log(projectData);
           return (
             <StyledProjectItem key={index} data={projectData} isSelectable={projectData.isSelectable} />
           );
