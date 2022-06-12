@@ -1,6 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// Assets
+import {
+  nameHandler,
+} from '../components/Form/formFuncs';
+
 // Components
 import {
   StyledPageTitle,
@@ -46,9 +51,9 @@ function ContactForm ({ className }: ContactFormProps) {
 
       <div>
         <StyledForm>
-          <StyledInputCont text="Name" inputType="text" isRequired />
-          <StyledInputCont text="Subject" inputType="text" isRequired />
-          <StyledInputCont text="Email Address" inputType="email" isRequired />
+          <StyledInputCont text="Name" inputType="text" isRequired inputHandler={nameHandler} />
+          <StyledInputCont text="Subject" inputType="text" isRequired inputHandler={nameHandler} />
+          <StyledInputCont text="Email Address" inputType="email" isRequired inputHandler={nameHandler} />
         </StyledForm>
       </div>
     </div>
