@@ -4,6 +4,8 @@ import styled from 'styled-components';
 // Assets
 import {
   nameHandler,
+  subjectHandler,
+  emailHandler,
 } from '../components/Form/formFuncs';
 
 // Components
@@ -52,8 +54,8 @@ function ContactForm ({ className }: ContactFormProps) {
       <div>
         <StyledForm>
           <StyledInputCont text="Name" inputType="text" isRequired inputHandler={nameHandler} />
-          <StyledInputCont text="Subject" inputType="text" isRequired inputHandler={nameHandler} />
-          <StyledInputCont text="Email Address" inputType="email" isRequired inputHandler={nameHandler} />
+          <StyledInputCont text="Subject" inputType="text" isRequired inputHandler={subjectHandler} />
+          <StyledInputCont text="Email Address" inputType="email" isRequired inputHandler={emailHandler} />
         </StyledForm>
       </div>
     </div>
