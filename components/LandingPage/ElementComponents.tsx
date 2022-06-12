@@ -184,6 +184,29 @@ const StyledBorder = styled.div<FormProps>`
   `}
 `;
 
+const StyledTextArea = styled.textarea<InputProps>`
+  font-family: var(--fnt-regular);
+  background: transparent;
+  height: 200px;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+  font-size: 1rem;
+  transition: border-bottom 0.3s;
+  resize: none;
+
+  color: var(--clr-gainsboro);
+  border-bottom: 1px solid var(--clr-gainsboro);
+
+  ${({ isValid, isDefault }) => isValid && !isDefault && `
+    border-bottom: 1px solid var(--clr-amber);
+  `}
+
+  ${({ isValid, isDefault }) => !isValid && !isDefault && `
+    border-bottom: 1px solid var(--clr-salmon);
+  `}
+`;
+
 export {
   StyledEmphasisWord,
   StyledParagraph,
@@ -195,4 +218,5 @@ export {
   StyledInput,
   StyledLabel,
   StyledBorder,
+  StyledTextArea,
 };
