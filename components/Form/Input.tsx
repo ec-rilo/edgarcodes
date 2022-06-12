@@ -66,7 +66,7 @@ const InputCont = ({
             setBuiltInValidity(e.target.checkValidity());
           }}
           onFocus={() => setIsActive(true)}
-          onBlur={(e) => userInput.length === 0 && setIsActive(false)}
+          onBlur={() => userInput.length === 0 && setIsActive(false)}
           isDefault={isDefault}
           isValid={isValid}
           type={inputType}
