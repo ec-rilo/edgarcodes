@@ -7,6 +7,7 @@ import StyledNavCont from '../components/Nav/NavBar';
 import StyledLandingPage from './LandingPage';
 import StyledSkillsPage from './SkillsPage';
 import ProjectsPage from './ProjectsPage';
+import StyledContactForm from './FormPage';
 
 const Home: NextPage = () => {
   return (
@@ -20,6 +21,7 @@ const Home: NextPage = () => {
       <StyledLandingPage />
       <StyledSkillsPage />
       <ProjectsPage />
+      <StyledContactForm />
     </StyledContainer>
   )
 }
