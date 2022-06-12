@@ -6,6 +6,7 @@ import {
   nameHandler,
   subjectHandler,
   emailHandler,
+  messageHandler,
 } from '../components/Form/formFuncs';
 
 // Components
@@ -15,6 +16,7 @@ import {
   StyledEmphasisWord,
 } from '../components/LandingPage/ElementComponents';
 import StyledInputCont from '../components/Form/Input';
+import StyledMessageCont from '../components/Form/MessageCont';
 
 const StyledForm = styled.form`
   display: flex;
@@ -56,6 +58,7 @@ function ContactForm ({ className }: ContactFormProps) {
           <StyledInputCont text="Name" inputType="text" isRequired inputHandler={nameHandler} />
           <StyledInputCont text="Subject" inputType="text" isRequired inputHandler={subjectHandler} />
           <StyledInputCont text="Email Address" inputType="email" isRequired inputHandler={emailHandler} />
+          <StyledMessageCont text="Message" isRequired inputHandler={messageHandler} />
         </StyledForm>
       </div>
     </div>
