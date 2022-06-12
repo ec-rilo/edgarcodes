@@ -108,6 +108,82 @@ const StyledEmphasisBtn = styled.p`
   }
 `;
 
+interface InputProps {
+  readonly isDefault: boolean;
+  readonly isValid: boolean;
+}
+
+const StyledInput = styled.input<InputProps>`
+  background: transparent;
+  height: 30px;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+  font-size: 1rem;
+  transition: border-bottom 0.3s;
+
+  color: var(--clr-gainsboro);
+  border-bottom: 1px solid var(--clr-gainsboro);
+
+  ${({ isValid, isDefault }) => isValid && !isDefault && `
+    border-bottom: 1px solid var(--clr-amber);
+  `}
+
+  ${({ isValid, isDefault }) => !isValid && !isDefault && `
+    border-bottom: 1px solid var(--clr-salmon);
+  `}
+`;
+
+interface FormProps {
+  readonly isDefault: boolean;
+  readonly isValid: boolean;
+  readonly isActive: boolean;
+}
+
+const StyledLabel = styled.label<FormProps>`
+  position: absolute;
+  transition: top 0.3s, color 0.3s, font-size 0.3s;
+  color: var(--clr-gainsboro);
+
+  top: 8px;
+
+  ${({ isActive }) => isActive && `
+    top: -50%;
+    font-size: .8rem;
+  `}
+
+  ${({ isValid, isDefault }) => isValid && !isDefault && `
+    color: var(--clr-amber);
+  `}
+
+  ${({ isValid, isDefault }) => !isValid && !isDefault && `
+    color: var(--clr-salmon);
+  `}
+`;
+
+const StyledBorder = styled.div<FormProps>`
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  bottom: 0;
+  background-color: var(--clr-gainsboro);
+  transform: scaleX(0);
+  transition: transform 0.3s, background-color 0.3s;
+
+  ${({ isActive }) => isActive && `
+    height: 3px;
+    transform: scaleX(1);
+  `}
+
+  ${({ isValid, isDefault }) => isValid && !isDefault && `
+    background-color: var(--clr-amber);
+  `}
+
+  ${({ isValid, isDefault }) => !isValid && !isDefault && `
+    background-color: var(--clr-salmon);
+  `}
+`;
+
 export {
   StyledEmphasisWord,
   StyledParagraph,
@@ -116,4 +192,7 @@ export {
   StyledTitle,
   StyledPageTitle,
   StyledEmphasisBtn,
+  StyledInput,
+  StyledLabel,
+  StyledBorder,
 };
