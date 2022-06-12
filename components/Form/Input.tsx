@@ -15,22 +15,20 @@ const StyledContainer = styled.div`
   width: 100%;
 `;
 
+// inputHandler must return true or false.
 interface InputContProps {
   readonly className?: string;
   readonly text: string;
   readonly inputType: string;
-  readonly isRequired: boolean;
-}
+  readonly isRequired?: boolean;
+  readonly inputHandler: Function;
+};
 
-const InputCont = ({ className, text, inputType, isRequired }: InputContProps) => {
+const InputCont = ({
+  className, text, inputType, isRequired, inputHandler,
+}: InputContProps) => {
   const [userInput, setUserInput] = useState('');
   const [isActive, setIsActive] = useState(false);
-  const [validation, setValidation] = useState({
-    default: true,
-    valid: false,
-    invalid: false,
-  });
-
   const [isDefault, setIsDefault] = useState(true);
   const [isValid, setIsValid] = useState(false);
 
@@ -42,13 +40,13 @@ const InputCont = ({ className, text, inputType, isRequired }: InputContProps) =
     }
   }, [userInput]);
 
-  const handleInput = (str: string) => {
-    if (str.length <= 20 && str.length !== 0) {
-     setIsValid(true);
-    } else if (str.length >= 20) {
-      setIsValid(false);
+  useEffect(() => {
+    if (userInput.length > 0) {
+      const validationResult = inputHandler(userInput);
+      setIsValid(validationResult);
     }
-  };
+
+  }, [userInput, inputHandler]);
 
   return (
     <div className={className}>
@@ -62,10 +60,7 @@ const InputCont = ({ className, text, inputType, isRequired }: InputContProps) =
           {text}
         </StyledLabel>
         <StyledInput
-          onChange={(e) => {
-            handleInput(e.target.value);
-            setUserInput(e.target.value);
-          }}
+          onChange={(e) => setUserInput(e.target.value)}
           onFocus={() => setIsActive(true)}
           onBlur={(e) => userInput.length === 0 && setIsActive(false)}
           isDefault={isDefault}
