@@ -31,6 +31,7 @@ const InputCont = ({
   const [isActive, setIsActive] = useState(false);
   const [isDefault, setIsDefault] = useState(true);
   const [isValid, setIsValid] = useState(false);
+  const [builtInValidity, setBuiltInValidity] = useState(false);
 
   useEffect(() => {
     if (userInput.length === 0) {
@@ -42,11 +43,11 @@ const InputCont = ({
 
   useEffect(() => {
     if (userInput.length > 0) {
-      const validationResult = inputHandler(userInput);
+      const validationResult = inputHandler(userInput, builtInValidity);
       setIsValid(validationResult);
     }
 
-  }, [userInput, inputHandler]);
+  }, [userInput, inputHandler, builtInValidity]);
 
   return (
     <div className={className}>
@@ -60,7 +61,10 @@ const InputCont = ({
           {text}
         </StyledLabel>
         <StyledInput
-          onChange={(e) => setUserInput(e.target.value)}
+          onChange={(e) => {
+            setUserInput(e.target.value);
+            setBuiltInValidity(e.target.checkValidity());
+          }}
           onFocus={() => setIsActive(true)}
           onBlur={(e) => userInput.length === 0 && setIsActive(false)}
           isDefault={isDefault}
