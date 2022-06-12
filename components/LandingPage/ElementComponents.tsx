@@ -64,11 +64,17 @@ const StyledSection = styled.section`
   font-size: 1rem;
 `;
 
-const StyledPageTitle = styled.h2`
+interface PageTitleProps {
+  readonly noMargin?: boolean;
+}
+
+const StyledPageTitle = styled.h2<PageTitleProps>`
   font-size: 2.5rem;
   color: var(--clr-gainsboro);
   font-family: var(--fnt-bld);
   margin: 30px 0;
+
+  ${({ noMargin }) => noMargin && 'margin: 0;'}
 
   @media (${viewport.xl}) {
     font-size: 3rem;
