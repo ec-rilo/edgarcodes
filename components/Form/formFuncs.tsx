@@ -1,6 +1,5 @@
 const nameHandler = (name: string) => {
   if (name.length > 0 && name.length <= 20) return true;
-  console.log(name);
 
   return false;
 };
