@@ -1,14 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// Assets
-
 // Components
 import {
   StyledPageTitle,
   StyledParagraph,
-  StyledEmphasisWord
+  StyledEmphasisWord,
 } from '../components/LandingPage/ElementComponents';
+import StyledInputCont from '../components/Form/Input';
+
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+`;
 
 const StyledTextCont = styled.div`
   display: flex;
@@ -38,12 +43,23 @@ function ContactForm ({ className }: ContactFormProps) {
           </StyledEmphasisWord>
         </StyledTextCont>
       </div>
+
+      <div>
+        <StyledForm>
+          <StyledInputCont text="Name" inputType="text" isRequired />
+          <StyledInputCont text="Subject" inputType="text" isRequired />
+          <StyledInputCont text="Email Address" inputType="email" isRequired />
+        </StyledForm>
+      </div>
     </div>
   )
 };
 
 const StyledContactForm = styled(ContactForm)`
   padding: 12% 0%;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
 `;
 
 export default StyledContactForm;
