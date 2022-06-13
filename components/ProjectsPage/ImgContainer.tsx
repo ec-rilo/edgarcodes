@@ -7,6 +7,7 @@ import viewport from '../../viewportSizes';
 
 // Components
 import StyledOverlayCont from './DarkOverlay';
+import StyledTextOverlay from './TextOverlay';
 
 interface StaticImageData {
   src: string;
@@ -18,12 +19,21 @@ interface ImgContProps {
   readonly className?: string;
   readonly src: string | StaticImageData;
   readonly alt: string;
+
+  readonly overlay?: boolean;
+  readonly title?: string;
+  readonly subTitle?: string;
 };
 
-const ImgCont = ({ className, src, alt }: ImgContProps) => {
+const ImgCont = ({
+  className, src, alt, overlay, title, subTitle,
+}: ImgContProps) => {
   return (
     <div className={className}>
       <Image src={src} alt={alt} layout="fill" objectFit="contain" />
+      {overlay &&
+        <StyledTextOverlay title={title || ''} subTitle={subTitle} />
+      }
       <StyledOverlayCont />
     </div>
   );
