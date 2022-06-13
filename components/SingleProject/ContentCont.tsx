@@ -31,25 +31,43 @@ const StyledContainer = styled.div`
   min-height: 500px;
 `;
 
-interface ContentContProps {
-  readonly className?: string;
+interface StaticImageData {
+  src: string;
+  height: number;
+  width: number;
 };
 
-function ContentCont ({ className }: ContentContProps) {
+interface ContentProps {
+  readonly title: string;
+  readonly subtitle: string;
+  readonly paragraphsArr: string[];
+  readonly imgSrc: StaticImageData;
+  readonly repo: string;
+};
+
+interface ContentContProps {
+  readonly className?: string;
+  readonly data: ContentProps;
+};
+
+function ContentCont ({ className, data }: ContentContProps) {
   return (
     <div className={className}>
       <StyledContainer>
         <StyledTitleCont>
-          <StyledTitle>Rumble</StyledTitle>
-          <StyledSubTitle light regular>Food ordering app, done Tinder style </StyledSubTitle>
+          <StyledTitle>{data.title}</StyledTitle>
+          <StyledSubTitle light regular>{data.subtitle} </StyledSubTitle>
         </StyledTitleCont>
-
+          {data.paragraphsArr.map((paragraph, index) => (
+            <StyledParagraph key={index}>
+              {paragraph}
+            </StyledParagraph>
+          ))}
         <StyledTextCont>
-          <StyledParagraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </StyledParagraph>
           <div>
-            <StyledEmphasisBtn underline>Repository</StyledEmphasisBtn>
+            <a href={data.repo} target="_blank" rel="noreferrer">
+              <StyledEmphasisBtn underline>Repository</StyledEmphasisBtn>
+            </a>
           </div>
         </StyledTextCont>
       </StyledContainer>
