@@ -143,11 +143,12 @@ interface FormProps {
 const StyledLabel = styled.label<FormProps>`
   position: absolute;
   transition: top 0.3s, color 0.3s, font-size 0.3s;
-  color: var(--clr-gainsboro);
+  color: var(--clr-gainsboro-light);
 
   top: 8px;
 
   ${({ isActive }) => isActive && `
+    color: var(--clr-gainsboro);
     top: -50%;
     font-size: .8rem;
   `}
