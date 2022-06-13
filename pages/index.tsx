@@ -8,6 +8,7 @@ import StyledLandingPage from './LandingPage';
 import StyledSkillsPage from './SkillsPage';
 import ProjectsPage from './ProjectsPage';
 import StyledContactForm from './FormPage';
+import StyledFooter from '../components/Footer';
 
 const Home: NextPage = () => {
   return (
@@ -22,6 +23,7 @@ const Home: NextPage = () => {
       <StyledSkillsPage />
       <ProjectsPage />
       <StyledContactForm />
+      <StyledFooter />
     </StyledContainer>
   )
 }
