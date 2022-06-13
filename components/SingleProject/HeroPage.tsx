@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Image from 'next/image';
 
 // Assets
-import imgSrc from '../../public/images/women-walking-img.jpeg';
 import viewport from '../../viewportSizes';
 
 // Components
@@ -24,17 +23,32 @@ const StyledImgCont = styled.div`
   }
 `;
 
-interface HeroPageProps {
-  readonly className?: string;
+interface StaticImageData {
+  src: string;
+  height: number;
+  width: number;
 };
 
-function HeroPage ({ className }: HeroPageProps) {
+interface ContentProps {
+  readonly title: string;
+  readonly subtitle: string;
+  readonly paragraphsArr: string[];
+  readonly imgSrc: StaticImageData;
+  readonly repo: string;
+};
+
+interface HeroPageProps {
+  readonly className?: string;
+  readonly data: ContentProps;
+};
+
+function HeroPage ({ className, data }: HeroPageProps) {
   return (
     <div className={className}>
-      <StyledContentCont />
+      <StyledContentCont data={data} />
 
       <StyledImgCont>
-        <Image src={imgSrc} alt="#" layout="fill" objectFit="cover" />
+        <Image src={data.imgSrc} alt="#" layout="fill" objectFit="cover" />
       </StyledImgCont>
     </div>
   )
