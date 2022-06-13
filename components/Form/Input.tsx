@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 // Components
@@ -7,6 +7,7 @@ import {
   StyledLabel,
   StyledBorder,
 } from '../LandingPage/ElementComponents';
+import StyledErrorMsg from './ErrorMsg';
 
 const StyledContainer = styled.div`
   display: flex;
@@ -22,16 +23,20 @@ interface InputContProps {
   readonly inputType: string;
   readonly isRequired?: boolean;
   readonly inputHandler: Function;
+  readonly formSubmitted: boolean;
 };
 
 const InputCont = ({
-  className, text, inputType, isRequired, inputHandler,
+  className, text, inputType, isRequired, inputHandler, formSubmitted,
 }: InputContProps) => {
   const [userInput, setUserInput] = useState('');
   const [isActive, setIsActive] = useState(false);
   const [isDefault, setIsDefault] = useState(true);
   const [isValid, setIsValid] = useState(false);
   const [builtInValidity, setBuiltInValidity] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
+
+  const elem = useRef(null);
 
   useEffect(() => {
     if (userInput.length === 0) {
@@ -49,33 +54,43 @@ const InputCont = ({
 
   }, [userInput, inputHandler, builtInValidity]);
 
+  useEffect(() => {
+    if (elem !== null && formSubmitted) {
+      setErrorMsg(elem.current.validationMessage);
+    }
+  }, [formSubmitted, userInput])
+
   return (
     <div className={className}>
-      <StyledContainer>
-        <StyledLabel
-        isActive={isActive}
-        isDefault={isDefault}
-        isValid={isValid}
-        htmlFor={text}
-        >
-          {text}
-        </StyledLabel>
-        <StyledInput
-          onChange={(e) => {
-            setUserInput(e.target.value);
-            setBuiltInValidity(e.target.checkValidity());
-          }}
-          onFocus={() => setIsActive(true)}
-          onBlur={() => userInput.length === 0 && setIsActive(false)}
+      <div style={{ position: "relative" }}>
+        <StyledContainer>
+          <StyledLabel
+          isActive={isActive}
           isDefault={isDefault}
           isValid={isValid}
-          type={inputType}
-          required={isRequired}
-          id={text}
-          name={text}
-        />
-      </StyledContainer>
-      <StyledBorder isActive={isActive} isDefault={isDefault} isValid={isValid} />
+          htmlFor={text}
+          >
+            {text}
+          </StyledLabel>
+          <StyledInput
+            onChange={(e) => {
+              setUserInput(e.target.value);
+              setBuiltInValidity(e.target.checkValidity());
+            }}
+            onFocus={() => setIsActive(true)}
+            onBlur={() => userInput.length === 0 && setIsActive(false)}
+            isDefault={isDefault}
+            isValid={isValid}
+            type={inputType}
+            required={isRequired}
+            id={text}
+            name={text}
+            ref={elem}
+          />
+        </StyledContainer>
+        <StyledBorder isActive={isActive} isDefault={isDefault} isValid={isValid} />
+      </div>
+      <StyledErrorMsg visible={formSubmitted}>{errorMsg}</StyledErrorMsg>
     </div>
   );
 };
