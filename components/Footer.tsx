@@ -7,7 +7,7 @@ import viewport from '../viewportSizes';
 
 // Components
 import StyledLogo from './Logo';
-import { StyledParagraph } from './LandingPage/ElementComponents';
+import { StyledEmphasisWord, StyledParagraph } from './LandingPage/ElementComponents';
 import { StyledAnimateLi } from './AnimateComponents';
 
 interface FooterProps {
@@ -54,7 +54,7 @@ function Footer ({ className }: FooterProps) {
     <footer className={className}>
       <StyledCont>
         <StyledLogo />
-        <StyledParagraph regular>Edgar Carrillo</StyledParagraph>
+        <StyledEmphasisWord light bold>Edgar Carrillo</StyledEmphasisWord >
       </StyledCont>
 
       <StyledContUl>
@@ -78,14 +78,21 @@ function Footer ({ className }: FooterProps) {
 
 const StyledFooter = styled(Footer)`
   position: relative;
-
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 30px 0 ;
 
   font-family: var(--fnt-regular);
-  height: 100px;
-  z-index: auto;
+  border-top: 1px solid var(--clr-gainsboro);
+
+
+  @media (${viewport.sm}) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `;
 
 export default StyledFooter;
