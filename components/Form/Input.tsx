@@ -36,7 +36,7 @@ const InputCont = ({
   const [builtInValidity, setBuiltInValidity] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
-  const elem = useRef(null);
+  const inputElem = useRef(null);
 
   useEffect(() => {
     if (userInput.length === 0) {
@@ -55,10 +55,10 @@ const InputCont = ({
   }, [userInput, inputHandler, builtInValidity]);
 
   useEffect(() => {
-    if (elem !== null && formSubmitted) {
-      setErrorMsg(elem.current.validationMessage);
+    if (inputElem !== null && formSubmitted) {
+      setErrorMsg(inputElem.current.validationMessage);
     }
-  }, [formSubmitted, userInput])
+  }, [formSubmitted, userInput]);
 
   return (
     <div className={className}>
@@ -85,7 +85,7 @@ const InputCont = ({
             required={isRequired}
             id={text}
             name={text}
-            ref={elem}
+            ref={inputElem}
           />
         </StyledContainer>
         <StyledBorder isActive={isActive} isDefault={isDefault} isValid={isValid} />
