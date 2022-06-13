@@ -30,11 +30,17 @@ const StyledEmphasisWord = styled.span<StyledEmphasisWordProps>`
   ${ ({ bold }) => bold && `font-family: var(--fnt-dark)` }
 `;
 
-const StyledParagraph = styled.p`
+interface ParagraphProps {
+  readonly regular?: boolean;
+};
+
+const StyledParagraph = styled.p<ParagraphProps>`
   font-family: var(--fnt-regular);
   color: var(--clr-gainsboro);
   font-size: 1.1rem;
   line-height: 1.5rem;
+
+  ${({ regular }) => regular && 'font-size: 1rem;'}
 `;
 
 const StyledTitle = styled.h1`
@@ -66,7 +72,7 @@ const StyledSection = styled.section`
 
 interface PageTitleProps {
   readonly noMargin?: boolean;
-}
+};
 
 const StyledPageTitle = styled.h2<PageTitleProps>`
   font-size: 2.5rem;
@@ -111,7 +117,7 @@ const StyledEmphasisBtn = styled.p`
 interface InputProps {
   readonly isDefault: boolean;
   readonly isValid: boolean;
-}
+};
 
 const StyledInput = styled.input<InputProps>`
   background: transparent;
@@ -138,7 +144,7 @@ interface FormProps {
   readonly isDefault: boolean;
   readonly isValid: boolean;
   readonly isActive: boolean;
-}
+};
 
 const StyledLabel = styled.label<FormProps>`
   position: absolute;
