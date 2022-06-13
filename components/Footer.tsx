@@ -31,7 +31,7 @@ const StyledContUl = styled.ul`
   text-transform: uppercase;
 `;
 
-const Footer = ({ className }: FooterProps) => {
+function Footer ({ className }: FooterProps) {
   const menuItemsAnimate = useAnimate([
     {
       name: 'Github',
