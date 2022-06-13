@@ -23,14 +23,15 @@ interface ImgContProps {
   readonly overlay?: boolean;
   readonly title?: string;
   readonly subTitle?: string;
+  readonly cover?: boolean;
 };
 
 const ImgCont = ({
-  className, src, alt, overlay, title, subTitle,
+  className, src, alt, overlay, title, subTitle, cover,
 }: ImgContProps) => {
   return (
     <div className={className}>
-      <Image src={src} alt={alt} layout="fill" objectFit="contain" />
+      <Image src={src} alt={alt} layout="fill" objectFit={cover ? "cover" : "contain"} />
       {overlay &&
         <StyledTextOverlay title={title || ''} subTitle={subTitle} />
       }
