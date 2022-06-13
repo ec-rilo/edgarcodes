@@ -26,12 +26,12 @@ const StyledAnimateImg = styled(Image)<AnimateProps>`
 
 const StyledAnimateLi = styled.li`
   color: var(--clr-gainsboro);
-  transition: color 0.2s;
+  transition: opacity 0.2s;
   cursor: pointer;
   ${({ content, index }: AnimateProps) => {
     if (content[index].isActive === false) {
       return `
-      color: var(--clr-gainsboro-light);
+      opacity: .2;
     `;
     }
   }}
