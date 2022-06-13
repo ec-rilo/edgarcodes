@@ -17,38 +17,24 @@ const StyledTextCont = styled(StyledSection)`
 
 interface SkillsPageProps {
   readonly className?: string;
+  readonly title: string;
+  readonly skillsArr: string[];
+  readonly paragraphsArr: string[];
 };
 
-const SkillsPage = ({ className }: SkillsPageProps) => {
-  const [skillsArr] = useState([
-    'JavaScript',
-    'React',
-    'Styled-Components',
-    'PostgreSQL',
-    'Styled-Components',
-    'MongoDB',
-    'Tailwind',
-    'Express',
-  ]);
+const SkillsPage = ({
+  className, title, skillsArr, paragraphsArr
+}: SkillsPageProps) => {
 
+  console.log(paragraphsArr);
   return (
     <div className={className}>
-      <StyledPageTitle>My Skills</StyledPageTitle>
-
+      <StyledPageTitle>{title}</StyledPageTitle>
       <StyledTextCont>
-        <StyledParagraph>
-          I&apos;ve taken courses that had an emphasis on understanding web
-          development technologies as well as the basics of computer science
-          concepts. After having pair programmed with many different people
-          and applied the web development concepts into many projects you can
-          now see my skills reflected on all new projects I&apos;ve created.
-        </StyledParagraph>
-        <StyledParagraph>
-          My favorite skill on this journey has been the endlesss learning.
-          Have a job available with tech not shown below? I&apos;m ready.
-        </StyledParagraph>
+        {paragraphsArr.map((paragraph, index) => (
+          <StyledParagraph key={index}>{paragraph}</StyledParagraph>
+        ))}
       </StyledTextCont>
-
       <StyledSkillsBanner skillsArr={skillsArr} />
     </div>
   );
