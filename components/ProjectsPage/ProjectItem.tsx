@@ -8,7 +8,7 @@ import viewport from '../../viewportSizes';
 import StyledImgCont from './ImgContainer';
 import StyledTitleCont from './TitleContainer';
 import {
-  StyledParagraph, StyledEmphasisWord, StyledEmphasisBtn,
+  StyledParagraph, StyledEmphasisBtn,
 } from '../LandingPage/ElementComponents';
 
 interface StyledDescripContProps {
