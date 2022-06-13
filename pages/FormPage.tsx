@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 // Assets
@@ -17,6 +17,7 @@ import {
 } from '../components/LandingPage/ElementComponents';
 import StyledInputCont from '../components/Form/Input';
 import StyledMessageCont from '../components/Form/MessageCont';
+import StyledSubmitBtn from '../components/Form/SubmitBtn';
 
 const StyledForm = styled.form`
   display: flex;
@@ -35,6 +36,8 @@ interface ContactFormProps {
 };
 
 function ContactForm ({ className }: ContactFormProps) {
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
   return (
     <div className={className}>
       <div>
@@ -54,11 +57,34 @@ function ContactForm ({ className }: ContactFormProps) {
       </div>
 
       <div>
-        <StyledForm>
-          <StyledInputCont text="Name" inputType="text" isRequired inputHandler={nameHandler} />
-          <StyledInputCont text="Subject" inputType="text" isRequired inputHandler={subjectHandler} />
-          <StyledInputCont text="Email Address" inputType="email" isRequired inputHandler={emailHandler} />
-          <StyledMessageCont text="Message" isRequired inputHandler={messageHandler} />
+        <StyledForm onSubmit={(e) => e.preventDefault()} noValidate>
+          <StyledInputCont
+            text="Name"
+            inputType="text"
+            isRequired
+            inputHandler={nameHandler}
+            formSubmitted={formSubmitted}
+          />
+          <StyledInputCont
+            text="Subject"
+            inputType="text"
+            isRequired
+            inputHandler={subjectHandler}
+            formSubmitted={formSubmitted}
+          />
+          <StyledInputCont
+            text="Email Address"
+            inputType="email"
+            isRequired
+            inputHandler={emailHandler}
+            formSubmitted={formSubmitted}
+          />
+          <StyledMessageCont
+            text="Message"
+            isRequired
+            inputHandler={messageHandler}
+          />
+          <StyledSubmitBtn onClick={() => setFormSubmitted(true)}>Submit</StyledSubmitBtn>
         </StyledForm>
       </div>
     </div>
