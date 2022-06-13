@@ -36,6 +36,7 @@ function MoreImgs ({ className, imgsArr }: MoreImgsProps) {
           overlay
           title={imgData.title}
           subTitle={imgData.subTitle}
+          cover
         />
       ))}
     </div>
