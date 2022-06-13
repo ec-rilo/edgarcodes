@@ -40,7 +40,7 @@ const StyledTextCont = styled.div<OverlayProps>`
 
 interface OverlayContProps {
   readonly className?: string;
-}
+};
 
 const OverlayCont = ({ className }: OverlayContProps) => {
   const [isActive, setActive] = useState(false);
