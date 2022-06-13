@@ -234,6 +234,21 @@ const StyledTextArea = styled.textarea<InputProps>`
   `}
 `;
 
+const StyledImgCont = styled.div`
+  position: relative;
+  height: 250px;
+  width: 100%;
+
+  @media (${viewport.xl}) {
+    height: 300px;
+  }
+
+  @media (${viewport['2xl']}) {
+    flex: 1;
+    height: 100%;
+  }
+`;
+
 export {
   StyledEmphasisWord,
   StyledParagraph,
@@ -246,4 +261,5 @@ export {
   StyledLabel,
   StyledBorder,
   StyledTextArea,
+  StyledImgCont,
 };
