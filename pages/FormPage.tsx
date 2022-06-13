@@ -103,6 +103,7 @@ const StyledContactForm = styled(ContactForm)`
   gap: 80px;
 
   @media (${viewport.xl}) {
+    padding: 12% 5%;
     flex-direction: row;
   }
 `;
