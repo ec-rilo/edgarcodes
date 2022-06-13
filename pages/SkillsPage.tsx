@@ -20,7 +20,7 @@ interface SkillsPageProps {
   readonly title: string;
   readonly skillsArr: string[];
   readonly paragraphsArr: string[];
-  readonly noPadding: boolean;
+  readonly noPadding?: boolean;
 };
 
 const SkillsPage = ({
