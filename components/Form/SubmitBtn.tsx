@@ -13,6 +13,13 @@ const StyledSubmitBtn = styled.button`
   color: var(--clr-gainsboro);
   font-size: 1rem;
   cursor: pointer;
+
+  transition: .2s all;
+
+  &:hover {
+    background-color: var(--clr-gainsboro);
+    color: var(--clr-onyx);
+  }
 `;
 
 export default StyledSubmitBtn;
