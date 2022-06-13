@@ -8,6 +8,7 @@ import {
   emailHandler,
   messageHandler,
 } from '../components/Form/formFuncs';
+import viewport from '../viewportSizes';
 
 // Components
 import {
@@ -25,10 +26,15 @@ const StyledForm = styled.form`
   gap: 60px;
 `;
 
+const StyledFormCont = styled.div`
+  flex: 1;
+`;
+
 const StyledTextCont = styled.div`
   display: flex;
   flex-direction: column;
   gap: 30px;
+  flex: 1;
 `;
 
 interface ContactFormProps {
@@ -40,23 +46,21 @@ function ContactForm ({ className }: ContactFormProps) {
 
   return (
     <div className={className}>
-      <div>
-        <StyledTextCont>
-          <StyledPageTitle noMargin>Let&apos;s Get Started!</StyledPageTitle>
-          <StyledParagraph style={{ maxWidth: "500px" }}>
-            If you have any questions, need a developer, or just want to connect,
-            feel free to reach out to me through this {" "}
-            <StyledEmphasisWord>form</StyledEmphasisWord> or directly
-            through my <StyledEmphasisWord>email</StyledEmphasisWord>
-            {" "} below.
-          </StyledParagraph>
-          <StyledEmphasisWord bold style={{ textDecoration: "underline" }}>
-            ecarrillo046@gmail.com
-          </StyledEmphasisWord>
-        </StyledTextCont>
-      </div>
+      <StyledTextCont>
+        <StyledPageTitle noMargin>Let&apos;s Get Started!</StyledPageTitle>
+        <StyledParagraph style={{ maxWidth: "500px" }}>
+          If you have any questions, need a developer, or just want to connect,
+          feel free to reach out to me through this {" "}
+          <StyledEmphasisWord>form</StyledEmphasisWord> or directly
+          through my <StyledEmphasisWord>email</StyledEmphasisWord>
+          {" "} below.
+        </StyledParagraph>
+        <StyledEmphasisWord bold style={{ textDecoration: "underline" }}>
+          ecarrillo046@gmail.com
+        </StyledEmphasisWord>
+      </StyledTextCont>
 
-      <div>
+      <StyledFormCont>
         <StyledForm onSubmit={(e) => e.preventDefault()} noValidate>
           <StyledInputCont
             text="Name"
@@ -87,7 +91,7 @@ function ContactForm ({ className }: ContactFormProps) {
           />
           <StyledSubmitBtn onClick={() => setFormSubmitted(true)}>Submit</StyledSubmitBtn>
         </StyledForm>
-      </div>
+      </StyledFormCont>
     </div>
   )
 };
@@ -97,6 +101,10 @@ const StyledContactForm = styled(ContactForm)`
   display: flex;
   flex-direction: column;
   gap: 80px;
+
+  @media (${viewport.xl}) {
+    flex-direction: row;
+  }
 `;
 
 export default StyledContactForm;
