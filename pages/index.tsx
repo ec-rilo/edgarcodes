@@ -1,6 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
+
+// Assets
+import projectsArr from '../assets/homeData/projectsData';
+import skillsData from '../assets/homeData/skillsData';
 
 // Components
 import StyledContainer from '../components/Container';
@@ -12,27 +16,6 @@ import StyledContactForm from './FormPage';
 import StyledFooter from '../components/Footer';
 
 const Home: NextPage = () => {
-  const [skillsArr] = useState([
-    'JavaScript',
-    'React',
-    'Styled-Components',
-    'PostgreSQL',
-    'Styled-Components',
-    'MongoDB',
-    'Tailwind',
-    'Express',
-  ]);
-
-  const [skillsParagraphs] = useState([
-    `I've taken courses that had an emphasis on understanding web
-    development technologies as well as the basics of computer science
-    concepts. After having pair programmed with many different people
-    and applied the web development concepts into many projects you can
-    now see my skills reflected on all new projects I've created.`,
-    `My favorite skill on this journey has been the endlesss learning.
-    Have a job available with tech not shown below? I'm ready.`,
-  ]);
-
   return (
     <StyledContainer>
       <Head>
@@ -44,10 +27,10 @@ const Home: NextPage = () => {
       <StyledLandingPage />
       <StyledSkillsPage
         title="My Skills"
-        skillsArr={skillsArr}
-        paragraphsArr={skillsParagraphs}
+        skillsArr={skillsData.skillsArr}
+        paragraphsArr={skillsData.descriptionArr}
       />
-      <ProjectsPage />
+      <ProjectsPage projectsArr={projectsArr} />
       <StyledContactForm />
       <StyledFooter />
     </StyledContainer>
