@@ -3,19 +3,28 @@ import styled from 'styled-components';
 // Assets
 import viewport from '../../viewportSizes';
 
-const StyledSubTitle = styled.p`
+interface SubTitleProps {
+  readonly light?: boolean;
+  readonly regular?: boolean;
+};
+
+const StyledSubTitle = styled.p<SubTitleProps>`
   color: var(--clr-gainsboro);
   margin-bottom: 10px;
 
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 
   @media (${viewport.md}) {
     font-size: 2rem;
   }
 
   @media (${viewport.xl}) {
-    font-size: 2.5rem;
+    ${({ regular }) => !regular && `
+      font-size: 2.5rem;
+    `}
   }
+
+  ${({ light }) => light && 'color: var(--clr-gainsboro-light);'}
 `;
 
 interface StyledEmphasisWordProps {
@@ -87,13 +96,21 @@ const StyledPageTitle = styled.h2<PageTitleProps>`
   }
 `;
 
-const StyledEmphasisBtn = styled.p`
+interface EmphasisBtnProps {
+  readonly underline?: boolean;
+};
+
+const StyledEmphasisBtn = styled.p<EmphasisBtnProps>`
   display: inline-block;
   color: var(--clr-gainsboro);
   font-family: var(--fnt-dark);
   font-size: 1.1rem;
   cursor: pointer;
   transition: color 250ms ease-in-out;
+
+  ${({ underline}) => underline && `
+    border-bottom: 1px solid var(--clr-gainsboro);
+  `}
 
   &:after {
     display: block;
@@ -111,6 +128,9 @@ const StyledEmphasisBtn = styled.p`
 
   &:hover {
     color: var(--clr-amber);
+    ${({ underline}) => underline && `
+    border-bottom: 1px solid var(--clr-amber);
+  `}
   }
 `;
 
