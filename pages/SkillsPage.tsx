@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 // Components
@@ -20,14 +20,12 @@ interface SkillsPageProps {
   readonly title: string;
   readonly skillsArr: string[];
   readonly paragraphsArr: string[];
+  readonly noPadding: boolean;
 };
 
 const SkillsPage = ({
-  className, title, skillsArr, paragraphsArr
-}: SkillsPageProps) => {
-
-  console.log(paragraphsArr);
-  return (
+  className, title, skillsArr, paragraphsArr,
+}: SkillsPageProps) => (
     <div className={className}>
       <StyledPageTitle>{title}</StyledPageTitle>
       <StyledTextCont>
@@ -37,11 +35,11 @@ const SkillsPage = ({
       </StyledTextCont>
       <StyledSkillsBanner skillsArr={skillsArr} />
     </div>
-  );
-};
+);
 
 const StyledSkillsPage = styled(SkillsPage)`
   padding: 12% 0%;
+  ${({ noPadding }) => noPadding && 'padding: 0;'}
 `;
 
 export default StyledSkillsPage;
