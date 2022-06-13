@@ -83,6 +83,7 @@ function ContactForm ({ className }: ContactFormProps) {
             text="Message"
             isRequired
             inputHandler={messageHandler}
+            formSubmitted={formSubmitted}
           />
           <StyledSubmitBtn onClick={() => setFormSubmitted(true)}>Submit</StyledSubmitBtn>
         </StyledForm>
