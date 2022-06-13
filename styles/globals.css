@@ -16,6 +16,7 @@
 :root {
   /* Colors */
   --clr-onyx: #101010;
+  --clr-onyx-transparent: rgba(16, 16, 16, 0.8);
   --clr-gainsboro: #dddddd;
   --clr-gainsboro-light: #ADADAD;
   --clr-amber: #ffbf00;
