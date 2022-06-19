@@ -15,7 +15,7 @@ import { StyledAnimateLi } from '../AnimateComponents';
 interface MenuContainerProps {
   readonly className?: string;
   menuItems: MenuItem[];
-}
+};
 
 const MenuContainer = ({ className, menuItems }: MenuContainerProps) => {
   const data = useAnimate(menuItems.map((item) => {
@@ -61,7 +61,7 @@ const StyledMenuContainer = styled(MenuContainer)`
 interface MenuItem {
   name: string;
   link: string;
-}
+};
 
 interface NavProps {
   className?: string;

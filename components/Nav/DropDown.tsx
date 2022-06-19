@@ -23,13 +23,13 @@ const StyledList = styled.ul`
 interface MenuItem {
   name: string;
   link: string;
-}
+};
 
 interface DropDownMenuProps {
   className?: string;
   hamIsActive: boolean;
   menuItems: MenuItem[];
-}
+};
 
 const DropDownMenu = ({ className, hamIsActive, menuItems }: DropDownMenuProps) => {
   const data = useAnimate(menuItems.map((item) => {
@@ -40,7 +40,7 @@ const DropDownMenu = ({ className, hamIsActive, menuItems }: DropDownMenuProps) 
     name: string;
     isActive: boolean;
     link: string;
-  }
+  };
 
   return (
     <div className={className}>
