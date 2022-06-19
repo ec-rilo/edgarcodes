@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 // Assets
 import useAnimate from '../assets/hooks/useAnimate';
@@ -52,10 +53,12 @@ function Footer ({ className }: FooterProps) {
 
   return (
     <footer className={className}>
-      <StyledCont>
-        <StyledLogo />
-        <StyledEmphasisWord light bold>Edgar Carrillo</StyledEmphasisWord >
-      </StyledCont>
+      <Link href="/">
+        <StyledCont>
+          <StyledLogo />
+          <StyledEmphasisWord light bold>Edgar Carrillo</StyledEmphasisWord >
+        </StyledCont>
+      </Link>
 
       <StyledContUl>
         {menuItemsAnimate.content.map((item, index) => (
@@ -87,7 +90,6 @@ const StyledFooter = styled(Footer)`
 
   font-family: var(--fnt-regular);
   border-top: 1px solid var(--clr-gainsboro);
-
 
   @media (${viewport.sm}) {
     flex-direction: row;
