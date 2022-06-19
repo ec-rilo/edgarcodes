@@ -45,7 +45,7 @@ function ContactForm ({ className }: ContactFormProps) {
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   return (
-    <div className={className}>
+    <div className={className} id="contact">
       <StyledTextCont>
         <StyledPageTitle noMargin>Let&apos;s Get Started!</StyledPageTitle>
         <StyledParagraph style={{ maxWidth: "500px" }}>
