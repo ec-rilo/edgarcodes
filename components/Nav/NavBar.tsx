@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 // Assets
 import useAnimate from '../../assets/hooks/useAnimate';
@@ -64,7 +65,11 @@ interface NavProps {
 const Nav = ({ className, setHamIsActive, menuItems }: NavProps) => {
   return (
     <nav className={className}>
-      <StyledLogo />
+      <Link href="/">
+        <div>
+          <StyledLogo />
+        </div>
+      </Link>
       <StyledMenuContainer menuItems={menuItems} />
       <StyledHamBtnContainer setHamIsActive={setHamIsActive} />
     </nav>
