@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head'
+import { useRouter } from 'next/router';
 
 // Assets
-import rumbleData from '../assets/projectData/rumble';
-
+import proj1Data from '../assets/projectData/rumble';
+import proj2Data from '../assets/projectData/funWithGPT3';
+import proj3Data from '../assets/projectData/atelier';
+import proj4Data from '../assets/projectData/threads';
+import defaultData from '../assets/projectData/default';
 
 // Components
 import StyledContainer from '../components/Container';
@@ -17,7 +21,17 @@ import StyledContactForm from './FormPage';
 import StyledFooter from '../components/Footer';
 
 function ProjectPage () {
-  const projectData = useState(rumbleData);
+  const router = useRouter();
+  const [data, setData] = useState(defaultData);
+
+  useEffect(() => {
+    const projName = router.query.projectName;
+    if (projName === 'Rumble') setData(proj1Data);
+    if (projName === 'Fun with GPT-3') setData(proj2Data);
+    if (projName === 'Atelier') setData(proj3Data);
+    if (projName === 'Threads') setData(proj4Data);
+  }, [router.query]);
+
   return (
     <StyledContainer>
       <Head>
@@ -26,39 +40,40 @@ function ProjectPage () {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <StyledNavCont />
-      <StyledHeroPage data={projectData[0].hero}/>
+      <StyledHeroPage data={data.hero}/>
       <StyledStatementCont
         title="Purpose and Goal"
         reverse
         imgData={{
-          src: projectData[0].purpose.imgSrc,
-          alt: projectData[0].purpose.alt,
+          src: data.purpose.imgSrc,
+          alt: data.purpose.alt,
         }}
-        paragraphsArr={projectData[0].purpose.paragraphsArr}
+        paragraphsArr={data.purpose.paragraphsArr}
+        cover={data.purpose.cover}
       />
       <StyledSkillsPage
         title="Tech Stack and Explanation"
-        skillsArr={projectData[0].skills.skillsArr}
-        paragraphsArr={projectData[0].skills.paragraphsArr}
+        skillsArr={data.skills.skillsArr}
+        paragraphsArr={data.skills.paragraphsArr}
       />
       <StyledStatementCont
         centered
         title="Problem Statement"
-        paragraphsArr={projectData[0].problem.paragraphsArr}
+        paragraphsArr={data.problem.paragraphsArr}
       />
-      <StyledImgs imgsArr={projectData[0].pictures.arr} row />
+      <StyledImgs imgsArr={data.pictures.arr} row />
       <StyledStatementCont
         title="Lessons and Outcomes"
-        paragraphsArr={projectData[0].lessons.paragraphsArr}
+        paragraphsArr={data.lessons.paragraphsArr}
         left
       />
-      <StyledImgs imgsArr={projectData[0].pictures2.arr} />
+      <StyledImgs imgsArr={data.pictures2.arr} />
       <StyledStatementCont
         title="What's Next?"
-        paragraphsArr={projectData[0].whatsNext.paragraphsArr}
+        paragraphsArr={data.whatsNext.paragraphsArr}
         left
       />
-      <StyledMoreImgs imgsArr={projectData[0].altProjects} />
+      <StyledMoreImgs imgsArr={data.altProjects} />
       <StyledContactForm />
       <StyledFooter />
     </StyledContainer>
