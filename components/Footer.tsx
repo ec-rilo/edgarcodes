@@ -8,7 +8,7 @@ import viewport from '../viewportSizes';
 
 // Components
 import StyledLogo from './Logo';
-import { StyledEmphasisWord, StyledParagraph } from './LandingPage/ElementComponents';
+import { StyledEmphasisWord } from './LandingPage/ElementComponents';
 import { StyledAnimateLi } from './AnimateComponents';
 
 interface FooterProps {
