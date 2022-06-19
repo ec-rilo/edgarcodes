@@ -21,7 +21,7 @@ const ContentContainer = ({ className }: ContentContainerProps) => {
   return (
     <main className={className}>
       <div>
-        <StyledSubTitle>Intern at <StyledEmphasisWord>Expensify</StyledEmphasisWord></StyledSubTitle>
+        <StyledSubTitle>Full Stack Engineer</StyledSubTitle>
         {/* <StyledDynamicTitleContainer /> */}
         <StyledTitle>Edgar Carrillo</StyledTitle>
       </div>
