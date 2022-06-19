@@ -36,10 +36,10 @@ const ContentContainer = ({ className }: ContentContainerProps) => {
           jumped into the logic side I was hooked.
         </StyledParagraph>
       </StyledSection>
-      <p>
+      <div>
         <StyledParagraph><StyledEmphasisWord light bold>CONTACT ME</StyledEmphasisWord></StyledParagraph>
         <StyledParagraph>ecarrillo046@gmail.com</StyledParagraph>
-      </p>
+      </div>
     </main>
   );
 };
