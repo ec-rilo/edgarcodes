@@ -35,7 +35,7 @@ interface ProjectsPageProps {
 
 const ProjectsPage = ({ projectsArr }: ProjectsPageProps) => {
   return (
-    <section style={{ padding: '12% 0%' }}>
+    <section style={{ padding: '12% 0%' }} id="work">
       <div style={{ maxWidth: '600px' }}>
         <StyledPageTitle>What I&apos;ve been up to</StyledPageTitle>
         <StyledParagraph>
