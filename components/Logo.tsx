@@ -22,6 +22,7 @@ const StyledLogo = styled(Logo)`
   width: 40px;
   height: 40px;
   border: 1px solid white;
+  cursor: pointer;
 `;
 
 export default StyledLogo;
