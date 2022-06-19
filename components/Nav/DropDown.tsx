@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 // assets
 import useAnimate from '../../assets/hooks/useAnimate';
@@ -19,20 +20,26 @@ const StyledList = styled.ul`
   }
 `;
 
+interface MenuItem {
+  name: string;
+  link: string;
+}
+
 interface DropDownMenuProps {
   className?: string;
   hamIsActive: boolean;
-  menuItems: string[];
+  menuItems: MenuItem[];
 }
 
 const DropDownMenu = ({ className, hamIsActive, menuItems }: DropDownMenuProps) => {
-  const data = useAnimate(menuItems.map((itemName) => {
-    return { name: itemName, isActive: true};
+  const data = useAnimate(menuItems.map((item) => {
+    return { name: item.name, isActive: true, link: item.link};
   }));
 
   interface itemProps {
     name: string;
     isActive: boolean;
+    link: string;
   }
 
   return (
@@ -40,15 +47,16 @@ const DropDownMenu = ({ className, hamIsActive, menuItems }: DropDownMenuProps) 
       <StyledList>
         {data.content.map((item: itemProps, index: number) => {
           return (
-            <StyledAnimateLi
-              key={index}
-              onMouseEnter={() => data.setOneActive(index)}
-              onMouseLeave={() => data.setAllActive()}
-              content={data.content}
-              index={index}
-            >
-              {item.name}
-            </StyledAnimateLi>
+            <Link key={index} href={`${item.link}`}>
+              <StyledAnimateLi
+                onMouseEnter={() => data.setOneActive(index)}
+                onMouseLeave={() => data.setAllActive()}
+                content={data.content}
+                index={index}
+              >
+                {item.name}
+              </StyledAnimateLi>
+            </Link>
           );
         })}
       </StyledList>
