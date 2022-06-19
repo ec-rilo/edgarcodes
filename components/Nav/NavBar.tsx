@@ -14,32 +14,34 @@ import { StyledAnimateLi } from '../AnimateComponents';
 
 interface MenuContainerProps {
   readonly className?: string;
-  menuItems: string[];
+  menuItems: MenuItem[];
 }
 
 const MenuContainer = ({ className, menuItems }: MenuContainerProps) => {
-  const data = useAnimate(menuItems.map((itemName) => {
-    return { name: itemName, isActive: true};
+  const data = useAnimate(menuItems.map((item) => {
+    return { name: item.name, isActive: true, link: item.link };
   }));
 
   interface itemProps {
     name: string;
     isActive: boolean;
+    link: string;
   }
 
   return (
     <ul className={className}>
       {data.content.map((item: itemProps, index: number) => {
         return (
-          <StyledAnimateLi
-            key={index}
-            onMouseEnter={() => data.setOneActive(index)}
-            onMouseLeave={() => data.setAllActive()}
-            content={data.content}
-            index={index}
-          >
-            {item.name}
-          </StyledAnimateLi>
+          <Link key={index} href={`${item.link}`}>
+            <StyledAnimateLi
+              onMouseEnter={() => data.setOneActive(index)}
+              onMouseLeave={() => data.setAllActive()}
+              content={data.content}
+              index={index}
+            >
+              {item.name}
+            </StyledAnimateLi>
+          </Link>
         );
       })}
     </ul>
@@ -56,10 +58,15 @@ const StyledMenuContainer = styled(MenuContainer)`
   }
 `;
 
+interface MenuItem {
+  name: string;
+  link: string;
+}
+
 interface NavProps {
   className?: string;
   setHamIsActive: Function;
-  menuItems: string[];
+  menuItems: MenuItem[];
 };
 
 const Nav = ({ className, setHamIsActive, menuItems }: NavProps) => {
@@ -94,10 +101,10 @@ interface NavContProps {
 const NavCont = ({ className }: NavContProps) => {
   const [hamIsActive, setHamIsActive] = useState(false);
   const [menuItems] = useState([
-    'work',
-    'about',
-    'contact',
-    'cv',
+    { name: 'work', link: '/#work' },
+    { name: 'about', link: '/about' },
+    { name: 'contact', link: '/#contact'},
+    { name: 'resume', link: '#'},
   ]);
 
   return (
