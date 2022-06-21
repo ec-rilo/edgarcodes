@@ -1,54 +1,55 @@
 // Assets
 import imgSrc from '../../public/images/women-walking-img.jpeg';
+import rumbleSrc from '../../public/images/projects/rumble/rumble-desktop-mobile.png';
 
 const projectsArr = [
   {
-    title: 'Iron Motorcycles',
-    category: 'Web Development',
+    title: "Rumble",
+    category: "Web Development",
     textContent:
-      'An e-commerce mock of a fictional Harley Davidson Motorcycle retailer. Built with React, I makes use of react hooks such as the Context API to handle data across multiple components.',
-    src: imgSrc,
-    alt: 'Iron Motorcycles website displayed on a apple computer and iphone.',
+      "A food ordering app, done tinder-style, that allows users to swipe right or left on restaurants, alone or in a group. View dedicated Restaurant pages along with the menu, and much more!",
+    src: rumbleSrc,
+    alt: "",
     isSelectable: true,
     important: false,
   },
   {
-    title: 'Movie Memory',
-    category: 'Web Development',
+    title: "Fun with GPT-3",
+    category: "Web Development",
     textContent:
-      'A game designed to test your memory. Read about my journey on refreshing my use with API\'s, my new approach to tackling web projects with a "Plan first, code after" approach, and more.',
+      "Play around with AI and ask it anything! Whatever you ask will be projected LIVE to any user using the application! Your results will vary based on the engine you choose when asking a question.",
     src: imgSrc,
-    alt: 'Movie Memory website displayed on a apple computer and iphone.',
+    alt: "",
     isSelectable: true,
     important: false,
   },
   {
-    title: 'CV-Creator',
-    category: 'Web Development',
+    title: "Atelier",
+    category: "Web Development",
     textContent:
-      'An easy to use application that allows the user to create a beautiful CV. Take a look at how I pushed through learning the basics of React where I use Class and Functional components.',
+      "Through timeblocking, using trello with my team, and following AGILE best practices - I was able to create a product details page with a RESTful Back End that surpassed client expectations.",
     src: imgSrc,
-    alt: 'CV-Creator website displayed on a apple computer.',
+    alt: "",
     isSelectable: true,
     important: false,
   },
   {
-    title: 'Battleship',
-    category: 'Web Development',
+    title: "Threads",
+    category: "Web Development",
     textContent:
-      'The classic game of Battleship! Checkout my Test Driven Development process used to make this game against a (not very intelligent) computer.',
+      "A Back-End system redesign for the products module of a legacy e-commerce API with 5+ million database entries with average query times of 1000ms+ per request. Converting the Monolithic service into dedicated micro-services.",
     src: imgSrc,
-    alt: 'Battleship website displayed on a apple computer and iphone.',
+    alt: "",
     isSelectable: true,
     important: false,
   },
   {
-    title: "Where's (?)",
-    category: 'Web Development',
+    title: "Rumble Remake",
+    category: "Web Development",
     textContent:
-      "A Where's Waldo inspired game that makes use of Firebase to store game scores from players across the world.",
+      "A full remake of Rumble that takes the foundation of the original product and extends it with Restaurants near the user, actual group swipe mode, and much more!",
     src: imgSrc,
-    alt: "Where's (?) website displayed on a apple computer and iphone.",
+    alt: "",
     isSelectable: false,
     important: true,
   },
