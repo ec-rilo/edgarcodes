@@ -8,7 +8,7 @@ import skillsData from '../assets/homeData/skillsData';
 
 // Components
 import StyledContainer from '../components/Container';
-import StyledNavCont from '../components/Nav/NavBar';
+import StyledNavCont from '../components/NavBar/NavBar';
 import StyledLandingPage from './LandingPage';
 import StyledSkillsPage from './SkillsPage';
 import ProjectsPage from './ProjectsPage';

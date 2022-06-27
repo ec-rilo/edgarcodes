@@ -11,7 +11,7 @@ import defaultData from '../assets/projectData/default';
 
 // Components
 import StyledContainer from '../components/Container';
-import StyledNavCont from '../components/Nav/NavBar';
+import StyledNavCont from '../components/NavBar/NavBar';
 import StyledHeroPage from '../components/SingleProject/HeroPage';
 import StyledStatementCont from '../components/SingleProject/StatementCont';
 import StyledSkillsPage from './SkillsPage';
