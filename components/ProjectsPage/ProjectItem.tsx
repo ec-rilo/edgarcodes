@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 // Assets
 import viewport from '../../viewportSizes';
@@ -55,16 +56,28 @@ interface ProjectItemProps {
 function ProjectItem ({ className, data }: ProjectItemProps) {
   return (
     <li className={className}>
-      <StyledImgCont src={data.src} alt={data.alt} />
+      <Link
+        href={{
+          pathname: '/project',
+          query: { projectName: data.title},
+        }}
+      >
+        <div>
+          <StyledImgCont src={data.src} alt={data.alt} />
+        </div>
+      </Link>
+
       <StyledDescripCont isImportant={data.important}>
         <StyledTitleCont title={data.title} subTitle={data.category} />
         <StyledParagraph style={{ fontSize: '1rem', maxWidth: '600px' }}>
           {data.textContent}
         </StyledParagraph>
         <div>
-          <StyledEmphasisBtn>
-            {data.important === true ? 'Coming Soon' : 'View Details'}
-          </StyledEmphasisBtn>
+          <Link href='/project'>
+            <StyledEmphasisBtn>
+              {data.important === true ? 'Coming Soon' : 'View Details'}
+            </StyledEmphasisBtn>
+          </Link>
         </div>
       </StyledDescripCont>
     </li>
