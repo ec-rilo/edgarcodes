@@ -6,8 +6,8 @@ import Image from 'next/image';
 import viewport from '../../viewportSizes';
 
 // Components
-import StyledOverlayCont from './DarkOverlay';
-import StyledTextOverlay from './TextOverlay';
+import StyledOverlayCont from '../ProjectsPage/DarkOverlay';
+import StyledTextOverlay from '../ProjectsPage/TextOverlay';
 
 interface StaticImageData {
   src: string;

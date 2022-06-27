@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 // Components
 import { StyledPageTitle, StyledParagraph } from '../components/LandingPage/ElementComponents';
-import StyledProjectItem from '../components/ProjectsPage/ProjectItem';
+import StyledProjectItem from '../components/ProjectCard/ProjectItem';
 
 const StyledProjectsContainer = styled.ul`
   display: flex;
