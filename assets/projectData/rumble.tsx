@@ -1,8 +1,10 @@
 import heroImg from '../../public/images/projects/rumble/rumble-phones-imgs.png';
-import mobileImg from '../../public/images/projects/rumble/rumble-mobile.png';
 import decoImg1 from '../../public/images/projects/rumble/rumble-deco-img-1.png';
 import decoImg2 from '../../public/images/projects/rumble/rumble-deco-img-2.png';
 import decoImg3 from '../../public/images/projects/rumble/rumble-deco-img-3.png';
+import decoImg4 from '../../public/images/projects/rumble/rumble-deco-img-4.png';
+import decoImg5 from '../../public/images/projects/rumble/rumble-deco-img-5.png';
+
 
 const hero = {
 
@@ -34,7 +36,7 @@ const purpose = {
     and view there menus and also be able to favorite restaurants and view them.
     `,
   ],
-  imgSrc: mobileImg,
+  imgSrc: decoImg5,
   alt: '',
   cover: false,
 
@@ -92,14 +94,6 @@ const pictures = {
 
 };
 
-const pictures2 = {
-
-  arr: [
-    { src: heroImg, alt: "#"},
-  ]
-
-};
-
 const lessons = {
 
   paragraphsArr: [
@@ -113,6 +107,14 @@ const lessons = {
     choosing a SQL or noSQL database) and structure flow of the application.
     `
   ],
+
+};
+
+const pictures2 = {
+
+  arr: [
+    { src: decoImg4, alt: "#"},
+  ]
 
 };
 
