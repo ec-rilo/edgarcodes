@@ -1,36 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head'
-import { useRouter } from 'next/router';
 
 // Assets
-import proj1Data from '../assets/projectData/rumble';
-import proj2Data from '../assets/projectData/funWithGPT3';
-import proj3Data from '../assets/projectData/atelier';
-import proj4Data from '../assets/projectData/threads';
-import defaultData from '../assets/projectData/default';
+import rumbleData from '../../assets/projectData/rumble';
 
 // Components
-import StyledContainer from '../components/Container';
-import StyledNavCont from '../components/NavBar/NavBar';
-import StyledHeroPage from '../components/SingleProject/HeroPage';
-import StyledStatementCont from '../components/SingleProject/StatementCont';
-import StyledSkillsPage from './SkillsPage';
-import StyledImgs from '../components/SingleProject/Imgs';
-import StyledMoreImgs from '../components/SingleProject/MoreImgs';
-import StyledContactForm from './FormPage';
-import StyledFooter from '../components/Footer';
+import StyledContainer from '../../components/Container';
+import StyledNavCont from '../../components/NavBar/NavBar';
+import StyledHeroPage from '../../components/SingleProject/HeroPage';
+import StyledStatementCont from '../../components/SingleProject/StatementCont';
+import StyledSkillsPage from '../SkillsPage';
+import StyledImgs from '../../components/SingleProject/Imgs';
+import StyledMoreImgs from '../../components/SingleProject/MoreImgs';
+import StyledContactForm from '../FormPage';
+import StyledFooter from '../../components/Footer';
 
-function ProjectPage () {
-  const router = useRouter();
-  const [data, setData] = useState(defaultData);
-
-  useEffect(() => {
-    const projName = router.query.projectName;
-    if (projName === 'Rumble') setData(proj1Data);
-    if (projName === 'Fun with GPT-3') setData(proj2Data);
-    if (projName === 'Atelier') setData(proj3Data);
-    if (projName === 'Threads') setData(proj4Data);
-  }, [router.query]);
+function RumbleProjectPage () {
+  const [data] = useState(rumbleData);
 
   return (
     <StyledContainer>
@@ -80,4 +66,4 @@ function ProjectPage () {
   )
 }
 
-export default ProjectPage;
+export default RumbleProjectPage;
