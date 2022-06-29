@@ -4,6 +4,9 @@ import decoImg2 from '../../public/images/projects/rumble/rumble-deco-img-2.png'
 import decoImg3 from '../../public/images/projects/rumble/rumble-deco-img-3.png';
 import decoImg4 from '../../public/images/projects/rumble/rumble-deco-img-4.png';
 import decoImg5 from '../../public/images/projects/rumble/rumble-deco-img-5.png';
+import threadsDecoImg from '../../public/images/projects/threads/deco-img-1.png';
+import gptDecoImg from '../../public/images/projects/fun-with-gpt-3/deco-img-1.png';
+
 
 
 const hero = {
@@ -135,14 +138,14 @@ const altProjects = [
 
   {
     title: 'Threads',
-    subTitle: 'Web Development',
-    src: heroImg,
+    subTitle: 'Backend Engineer',
+    src: threadsDecoImg,
     alt: '',
   },
   {
-    title: 'Atelier',
-    subTitle: 'Web Development',
-    src: heroImg,
+    title: 'Fun with GPT-3',
+    subTitle: 'Full Stack Software Engineer',
+    src: gptDecoImg,
     alt: '',
   },
 

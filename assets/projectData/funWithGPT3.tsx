@@ -1,10 +1,12 @@
-import rumbleDecoImg1 from '../../public/images/projects/rumble/rumble-deco-img-1.png';
 import decoImg1 from '../../public/images/projects/fun-with-gpt-3/deco-img-1.png';
 import decoImg2 from '../../public/images/projects/fun-with-gpt-3/deco-img-2.png';
 import decoImg3 from '../../public/images/projects/fun-with-gpt-3/deco-img-3.png';
 import decoImg4 from '../../public/images/projects/fun-with-gpt-3/deco-img-4.png';
 import decoImg5 from '../../public/images/projects/fun-with-gpt-3/deco-img-5.png';
 import decoImg6 from '../../public/images/projects/fun-with-gpt-3/deco-img-6.png';
+import atelierDecoImg from '../../public/images/projects/atelier/deco-img-9.png';
+import threadsDecoImg from '../../public/images/projects/threads/deco-img-1.png';
+
 
 
 
@@ -129,15 +131,15 @@ const lessons = {
 const altProjects = [
 
   {
-    title: 'Rumble',
-    subTitle: 'Full Stack Engineer - UI Owner',
-    src: rumbleDecoImg1,
+    title: 'Atelier',
+    subTitle: 'Frontend Engineer',
+    src: atelierDecoImg,
     alt: '',
   },
   {
     title: 'Threads',
-    subTitle: 'Web Development',
-    src: decoImg1,
+    subTitle: 'Backend Software Engineer',
+    src: threadsDecoImg,
     alt: '',
   },
 
