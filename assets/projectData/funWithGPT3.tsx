@@ -23,6 +23,7 @@ const hero = {
   ],
   repo: 'https://github.com/ec-rilo/fun-with-gpt-3',
   imgSrc: decoImg1,
+  cover: true,
 
 };
 

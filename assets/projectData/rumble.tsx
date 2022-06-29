@@ -20,6 +20,7 @@ const hero = {
   ],
   repo: 'https://github.com/dennisrcao/Rumble',
   imgSrc: heroImg,
+  cover: true,
 
 };
 
