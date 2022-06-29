@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import viewport from '../../viewportSizes';
 
 // Components
-import StyledImgCont from '../ProjectsPage/ImgContainer';
+import StyledImgCont from '../ProjectCard/ImgContainer';
 
 interface StaticImageData {
   src: string;
