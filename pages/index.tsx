@@ -12,7 +12,7 @@ import StyledNavCont from '../components/NavBar/NavBar';
 import StyledLandingPage from './LandingPage';
 import StyledSkillsPage from './SkillsPage';
 import ProjectsPage from './work';
-import StyledContactForm from './FormPage';
+import StyledContactForm from '../components/Form/ContactForm';
 import StyledFooter from '../components/Footer';
 
 const Home: NextPage = () => {

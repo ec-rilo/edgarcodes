@@ -12,7 +12,7 @@ import StyledStatementCont from '../../components/SingleProject/StatementCont';
 import StyledSkillsPage from '../SkillsPage';
 import StyledImgs from '../../components/SingleProject/Imgs';
 import StyledMoreImgs from '../../components/SingleProject/MoreImgs';
-import StyledContactForm from '../FormPage';
+import StyledContactForm from '../../components/Form/ContactForm';
 import StyledFooter from '../../components/Footer';
 
 function AtelierProjectPage () {

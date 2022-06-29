@@ -7,18 +7,18 @@ import {
   subjectHandler,
   emailHandler,
   messageHandler,
-} from '../components/Form/formFuncs';
-import viewport from '../viewportSizes';
+} from '../Form/formFuncs';
+import viewport from '../../viewportSizes';
 
 // Components
 import {
   StyledPageTitle,
   StyledParagraph,
   StyledEmphasisWord,
-} from '../components/LandingPage/ElementComponents';
-import StyledInputCont from '../components/Form/Input';
-import StyledMessageCont from '../components/Form/MessageCont';
-import StyledSubmitBtn from '../components/Form/SubmitBtn';
+} from '../LandingPage/ElementComponents';
+import StyledInputCont from '../Form/Input';
+import StyledMessageCont from '../Form/MessageCont';
+import StyledSubmitBtn from '../Form/SubmitBtn';
 
 const StyledForm = styled.form`
   display: flex;
