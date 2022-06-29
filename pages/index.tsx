@@ -11,7 +11,7 @@ import StyledContainer from '../components/Container';
 import StyledNavCont from '../components/NavBar/NavBar';
 import StyledLandingPage from './LandingPage';
 import StyledSkillsPage from './SkillsPage';
-import ProjectsPage from './ProjectsPage';
+import ProjectsPage from './work';
 import StyledContactForm from './FormPage';
 import StyledFooter from '../components/Footer';
 
