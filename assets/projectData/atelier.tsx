@@ -5,7 +5,7 @@ import decoImg6 from '../../public/images/projects/atelier/deco-img-6.png';
 import decoImg7 from '../../public/images/projects/atelier/deco-img-7.png';
 import decoImg8 from '../../public/images/projects/atelier/deco-img-8.png';
 import decoImg9 from '../../public/images/projects/atelier/deco-img-9.png';
-
+import gptDecoImg1 from '../../public/images/projects/fun-with-gpt-3/deco-img-1.png';
 
 const hero = {
 
@@ -123,7 +123,7 @@ const altProjects = [
   {
     title: 'Fun with GPT-3',
     subTitle: 'Full Stack Software Engineer',
-    src: decoImg1,
+    src: gptDecoImg1,
     alt: '',
   },
   {
