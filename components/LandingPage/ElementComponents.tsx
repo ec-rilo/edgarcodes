@@ -147,6 +147,7 @@ const StyledInput = styled.input<InputProps>`
   box-sizing: border-box;
   font-size: 1rem;
   transition: border-bottom 0.3s;
+  z-index: 1;
 
   color: var(--clr-gainsboro);
   border-bottom: 1px solid var(--clr-gainsboro);
@@ -221,6 +222,7 @@ const StyledTextArea = styled.textarea<InputProps>`
   font-size: 1rem;
   transition: border-bottom 0.3s;
   resize: none;
+  z-index: 1;
 
   color: var(--clr-gainsboro);
   border-bottom: 1px solid var(--clr-gainsboro);
