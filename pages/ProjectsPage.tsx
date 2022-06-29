@@ -27,6 +27,7 @@ interface ProjectProps {
   readonly alt: string;
   readonly isSelectable: boolean;
   readonly important: boolean;
+  readonly cover?: boolean;
 }
 
 interface ProjectsPageProps {
