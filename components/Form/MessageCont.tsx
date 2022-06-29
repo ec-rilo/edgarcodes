@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 // Components
 import {
-  StyledInput,
   StyledLabel,
   StyledBorder,
   StyledTextArea,
