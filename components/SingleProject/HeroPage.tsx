@@ -35,6 +35,7 @@ interface ContentProps {
   readonly paragraphsArr: string[];
   readonly imgSrc: StaticImageData;
   readonly repo: string;
+  readonly cover?: boolean;
 };
 
 interface HeroPageProps {
@@ -46,9 +47,8 @@ function HeroPage ({ className, data }: HeroPageProps) {
   return (
     <div className={className}>
       <StyledContentCont data={data} />
-
       <StyledImgCont>
-        <Image src={data.imgSrc} alt="#" layout="fill" objectFit="cover" />
+        <Image src={data.imgSrc} alt="#" layout="fill" objectFit={data.cover ? 'cover' : 'contain'} />
       </StyledImgCont>
     </div>
   )
