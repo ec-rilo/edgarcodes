@@ -110,10 +110,11 @@ interface StatementContProps {
   readonly title: string;
   readonly paragraphsArr: string[];
   readonly left?: boolean;
+  readonly cover?: boolean;
 };
 
 function StatementCont ({
-  className, imgData, centered, title, paragraphsArr, left
+  className, imgData, centered, title, paragraphsArr, left, cover,
 }: StatementContProps) {
   const [isImage] = useState(Boolean(imgData));
 
@@ -138,7 +139,7 @@ function StatementCont ({
               src={imgData?.src || ''}
               alt={imgData?.alt || ''}
               layout="fill"
-              objectFit="cover"
+              objectFit={cover ? "cover": "contain"}
             />
           </StyledImg>
         </StyledImgCont>
