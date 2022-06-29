@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components';
+import Link from 'next/link';
 
 // Assets
 import viewport from '../../viewportSizes';
+import addHypens from '../../scripts/addHypens';
 
 // Components
 import StyledImgCont from '../ProjectCard/ImgContainer';
@@ -29,15 +31,18 @@ function MoreImgs ({ className, imgsArr }: MoreImgsProps) {
   return (
     <div className={className}>
       {imgsArr.map((imgData, index) => (
-        <StyledImgCont
-          key={index}
-          src={imgData.src}
-          alt={imgData.alt}
-          overlay
-          title={imgData.title}
-          subTitle={imgData.subTitle}
-          cover
-        />
+        <Link href={`./${addHypens(imgData.title.toLowerCase())}`} key={index}>
+          <div>
+            <StyledImgCont
+              src={imgData.src}
+              alt={imgData.alt}
+              overlay
+              title={imgData.title}
+              subTitle={imgData.subTitle}
+              cover
+            />
+          </div>
+        </Link>
       ))}
     </div>
   )
