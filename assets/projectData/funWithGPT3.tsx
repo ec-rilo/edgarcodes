@@ -1,13 +1,17 @@
-import heroImg from '../../public/images/projects/rumble/rumble-phones-imgs.png';
-import mobileImg from '../../public/images/projects/rumble/rumble-mobile.png';
-import decoImg1 from '../../public/images/projects/rumble/rumble-deco-img-1.png';
-import decoImg2 from '../../public/images/projects/rumble/rumble-deco-img-2.png';
-import decoImg3 from '../../public/images/projects/rumble/rumble-deco-img-3.png';
+import rumbleDecoImg1 from '../../public/images/projects/rumble/rumble-deco-img-1.png';
+import decoImg1 from '../../public/images/projects/fun-with-gpt-3/deco-img-1.png';
+import decoImg2 from '../../public/images/projects/fun-with-gpt-3/deco-img-2.png';
+import decoImg3 from '../../public/images/projects/fun-with-gpt-3/deco-img-3.png';
+import decoImg4 from '../../public/images/projects/fun-with-gpt-3/deco-img-4.png';
+import decoImg5 from '../../public/images/projects/fun-with-gpt-3/deco-img-5.png';
+import decoImg6 from '../../public/images/projects/fun-with-gpt-3/deco-img-6.png';
+
+
 
 const hero = {
 
   title: 'Fun with GPT-3',
-  subtitle: 'Food ordering app, done Tinder style',
+  subtitle: 'AI Chatroom connected to the world',
   paragraphsArr: [
     `
     Fun with GPT-3 is a project I built for the Shopify Frontend Developer Intern Challenge.
@@ -18,7 +22,7 @@ const hero = {
     `
   ],
   repo: 'https://github.com/ec-rilo/fun-with-gpt-3',
-  imgSrc: heroImg,
+  imgSrc: decoImg1,
 
 };
 
@@ -32,7 +36,7 @@ const purpose = {
     users.
     `
   ],
-  imgSrc: mobileImg,
+  imgSrc: decoImg2,
   alt: '',
   cover: false,
 
@@ -81,9 +85,9 @@ const problem = {
 const pictures = {
 
   arr: [
+    { src: decoImg5, alt: "#"},
     { src: decoImg3, alt: "#"},
-    { src: decoImg2, alt: "#"},
-    { src: decoImg1, alt: "#"},
+    { src: decoImg6, alt: "#"},
   ]
 
 };
@@ -91,7 +95,7 @@ const pictures = {
 const pictures2 = {
 
   arr: [
-    { src: heroImg, alt: "#"},
+    { src: decoImg4, alt: "#"},
   ]
 
 };
@@ -125,14 +129,14 @@ const altProjects = [
 
   {
     title: 'Rumble',
-    subTitle: 'Web Development',
-    src: heroImg,
+    subTitle: 'Full Stack Engineer - UI Owner',
+    src: rumbleDecoImg1,
     alt: '',
   },
   {
     title: 'Threads',
     subTitle: 'Web Development',
-    src: heroImg,
+    src: decoImg1,
     alt: '',
   },
 
