@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 // Assets
 import viewport from '../../viewportSizes';
+import addHypens from '../../scripts/addHypens';
 
 // Components
 import StyledImgCont from './ImgContainer';
@@ -45,6 +46,7 @@ interface itemData {
   readonly alt: string;
   readonly isSelectable: boolean;
   readonly important: boolean;
+  readonly cover?: boolean;
 };
 
 interface ProjectItemProps {
@@ -54,16 +56,12 @@ interface ProjectItemProps {
 };
 
 function ProjectItem ({ className, data }: ProjectItemProps) {
+  const projectName = addHypens(data.title.toLowerCase());
   return (
     <li className={className}>
-      <Link
-        href={{
-          pathname: '/project',
-          query: { projectName: data.title},
-        }}
-      >
+      <Link href={ `projects/${projectName}` }>
         <div>
-          <StyledImgCont src={data.src} alt={data.alt} />
+          <StyledImgCont src={data.src} alt={data.alt} cover={data.cover} />
         </div>
       </Link>
 
@@ -73,7 +71,7 @@ function ProjectItem ({ className, data }: ProjectItemProps) {
           {data.textContent}
         </StyledParagraph>
         <div>
-          <Link href='/project'>
+          <Link href={ `/projects/${projectName}` }>
             <StyledEmphasisBtn>
               {data.important === true ? 'Coming Soon' : 'View Details'}
             </StyledEmphasisBtn>
