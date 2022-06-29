@@ -7,9 +7,6 @@ import decoImg6 from '../../public/images/projects/fun-with-gpt-3/deco-img-6.png
 import atelierDecoImg from '../../public/images/projects/atelier/deco-img-9.png';
 import threadsDecoImg from '../../public/images/projects/threads/deco-img-1.png';
 
-
-
-
 const hero = {
 
   title: 'Fun with GPT-3',
