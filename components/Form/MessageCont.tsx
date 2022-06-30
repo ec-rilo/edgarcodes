@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback, ChangeEvent } from 'react';
 import styled from 'styled-components';
 
 // Components
@@ -21,67 +21,65 @@ interface MessageContProps {
   readonly className?: string;
   readonly text: string;
   readonly isRequired?: boolean;
-  readonly inputHandler: Function;
+  readonly errorHandler: Function;
   readonly formSubmitted: boolean;
 }
 
 const MessageCont = ({
-  className, text, isRequired, inputHandler, formSubmitted,
+  className, text, isRequired, errorHandler, formSubmitted,
 }: MessageContProps) => {
   const [userInput, setUserInput] = useState('');
   const [isActive, setIsActive] = useState(false);
-  const [isDefault, setIsDefault] = useState(true);
   const [isValid, setIsValid] = useState(false);
-  const [builtInValidity, setBuiltInValidity] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
-  const textAreaElem = useRef(null);
+  const textAreaElem = useRef<HTMLTextAreaElement>(null);
 
-  useEffect(() => {
-    if (userInput.length === 0) {
-      setIsDefault(true);
-    } else if (userInput.length > 0) {
-      setIsDefault(false);
+  const checkValidity = (val:string, isValid:boolean) => {
+    if (val.length === 0) return false;
+    const validationResult = errorHandler(val, isValid);
+    return validationResult;
+  };
+
+  const handleErrors = useCallback((elem: HTMLTextAreaElement) => {
+    if (formSubmitted) {
+      setErrorMsg(elem.validationMessage)
     }
-  }, [userInput]);
+  }, [formSubmitted]);
 
+  const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setUserInput(e.target.value);
+    const valid = checkValidity(e.target.value, e.target.checkValidity());
+    valid ? setIsValid(true) : setIsValid(false);
+    handleErrors(e.target);
+  };
+
+  // When form submits, this will show errors. If any.
   useEffect(() => {
-    if (userInput.length > 0) {
-      const validationResult = inputHandler(userInput, builtInValidity);
-      setIsValid(validationResult);
-    }
-
-  }, [userInput, inputHandler, builtInValidity]);
-
-  useEffect(() => {
-    if (textAreaElem !== null && formSubmitted) {
-      setErrorMsg(textAreaElem.current.validationMessage);
-    }
-  }, [formSubmitted, userInput]);
+    const { current } = textAreaElem;
+    if (current !== null) handleErrors(current);
+  }, [formSubmitted, handleErrors]);
 
   return (
     <div className={className}>
-       <div style={{ position: "relative" }}>
+      <div style={{ position: "relative" }}>
         <StyledContainer>
           <div style={{ position: "absolute", height: "30px", width: "100%" }}>
             <StyledLabel
               isActive={isActive}
-              isDefault={isDefault}
+              isDefault={userInput.length === 0}
               isValid={isValid}
               htmlFor={text}
-              >
+            >
               {text}
             </StyledLabel>
           </div>
 
           <StyledTextArea
-            onChange={(e) => {
-              setUserInput(e.target.value);
-              setBuiltInValidity(e.target.checkValidity());
-            }}
+            onChange={(e) => handleChange(e)}
             onFocus={() => setIsActive(true)}
             onBlur={() => userInput.length === 0 && setIsActive(false)}
-            isDefault={isDefault}
+            isDefault={userInput.length === 0}
             isValid={isValid}
             required={isRequired}
             id={text}
@@ -89,9 +87,9 @@ const MessageCont = ({
             ref={textAreaElem}
           />
         </StyledContainer>
-        <StyledBorder isActive={isActive} isDefault={isDefault} isValid={isValid} />
-       </div>
-       <StyledErrorMsg visible={formSubmitted}>{errorMsg}</StyledErrorMsg>
+        <StyledBorder isActive={isActive} isDefault={userInput.length === 0} isValid={isValid} />
+      </div>
+      <StyledErrorMsg visible={formSubmitted}>{errorMsg}</StyledErrorMsg>
     </div>
   );
 };
