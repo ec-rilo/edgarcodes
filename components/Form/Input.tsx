@@ -36,30 +36,30 @@ const InputCont = ({
 
   const inputElem = useRef<HTMLInputElement>(null);
 
-  const checkValidity = (val:string, isValid:boolean) => {
-    if (val.length === 0) return false;
-    const validationResult = errorHandler(val, isValid);
-    return validationResult;
+  const handleErrors = (elem: HTMLInputElement) => {
+    elem.setCustomValidity('');
+    const errorText = errorHandler(elem.value, elem.validationMessage);
+    errorText ? setIsValid(false) : setIsValid(true);
+    elem.setCustomValidity(errorText);
   };
 
-  const handleErrors = useCallback((elem: HTMLInputElement) => {
+  const updateErrorMsg = useCallback((elem: HTMLInputElement) => {
     if (formSubmitted) {
-      setErrorMsg(elem.validationMessage)
+      setErrorMsg(elem.validationMessage);
     }
   }, [formSubmitted]);
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleValidation = (e: ChangeEvent<HTMLInputElement>) => {
     setUserInput(e.target.value);
-    const valid = checkValidity(e.target.value, e.target.checkValidity());
-    valid ? setIsValid(true) : setIsValid(false);
     handleErrors(e.target);
+    updateErrorMsg(e.target);
   };
 
   // When form submits, this will show errors. If any.
   useEffect(() => {
     const { current } = inputElem;
-    if (current !== null) handleErrors(current);
-  }, [formSubmitted, handleErrors]);
+    if (current !== null) updateErrorMsg(current);
+  }, [formSubmitted, updateErrorMsg]);
 
   return (
     <div className={className}>
@@ -74,7 +74,7 @@ const InputCont = ({
             {text}
           </StyledLabel>
           <StyledInput
-            onChange={(e) => handleChange(e)}
+            onChange={(e) => handleValidation(e)}
             onFocus={() => setIsActive(true)}
             onBlur={() => userInput.length === 0 && setIsActive(false)}
             isDefault={userInput.length === 0}
