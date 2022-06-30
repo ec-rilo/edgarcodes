@@ -90,7 +90,7 @@ function ContactForm ({ className }: ContactFormProps) {
           <StyledMessageCont
             isRequired
             text="Message"
-            inputHandler={messageHandler}
+            errorHandler={messageHandler}
             formSubmitted={formSubmitted}
           />
           <StyledSubmitBtn onClick={() => setFormSubmitted(true)}>Submit</StyledSubmitBtn>
