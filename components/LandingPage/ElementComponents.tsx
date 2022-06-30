@@ -27,6 +27,19 @@ const StyledSubTitle = styled.p<SubTitleProps>`
   ${({ light }) => light && 'color: var(--clr-gainsboro-light);'}
 `;
 
+const StyledArticleSubTitle = styled.p<SubTitleProps>`
+  color: var(--clr-gainsboro);
+  margin-bottom: 10px;
+
+  font-size: 1.3rem;
+
+  @media (${viewport.md}) {
+    font-size: 1.5rem;
+  }
+
+  ${({ light }) => light && 'color: var(--clr-gainsboro-light);'}
+`;
+
 interface StyledEmphasisWordProps {
   readonly light?: boolean;
   readonly bold?: boolean;
@@ -264,4 +277,5 @@ export {
   StyledBorder,
   StyledTextArea,
   StyledImgCont,
+  StyledArticleSubTitle,
 };
