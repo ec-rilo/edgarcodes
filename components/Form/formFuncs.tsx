@@ -1,29 +1,25 @@
-const nameHandler = (name: string) => {
-  if (name.length > 0 && name.length <= 20) return true;
-
-  return false;
+const nameHandler = (name: string, customError: string) => {
+  if (customError.length > 0) return customError;
+  if (name.length >= 30) return 'Please enter less then 30 characters.';
+  return '';
 };
 
-const subjectHandler = (subject: string) => {
-  if (subject.length > 0 && subject.length <= 25) return true;
-
-  return false;
+const subjectHandler = (subject: string, customError: string) => {
+  if (customError.length > 0) return customError;
+  if (subject.length >= 30) return 'Please enter less then 30 characters.';
+  return '';
 };
 
-const emailHandler = (subject: string, builtInValidation: boolean) => {
-  if (builtInValidation) {
-    if (subject.length > 0 && subject.length <= 30) return true;
-  }
-
-  return false;
+const emailHandler = (subject: string, customError: string) => {
+  if (customError.length > 0) return customError;
+  if (subject.length >= 40) return 'Please enter less then 30 characters.';
+  return '';
 };
 
-const messageHandler = (subject: string, builtInValidation: boolean) => {
-  if (builtInValidation) {
-    if (subject.length > 0 && subject.length <= 500) return true;
-  }
-
-  return false;
+const messageHandler = (subject: string, customError: string) => {
+  if (customError.length >  0) return customError;
+  if (subject.length >= 500) return 'Please enter less then 500 characters.';
+  return '';
 };
 
 export {
