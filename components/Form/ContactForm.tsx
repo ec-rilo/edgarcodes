@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, FormEvent } from 'react';
 import styled from 'styled-components';
 
 // Assets
@@ -42,7 +42,11 @@ interface ContactFormProps {
 };
 
 function ContactForm ({ className }: ContactFormProps) {
-  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false); // form submit attempt
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>, form: EventTarget) => {
+    e.preventDefault();
+  }
 
   return (
     <div className={className} id="contact">
@@ -61,31 +65,31 @@ function ContactForm ({ className }: ContactFormProps) {
       </StyledTextCont>
 
       <StyledFormCont>
-        <StyledForm onSubmit={(e) => e.preventDefault()} noValidate>
+        <StyledForm onSubmit={(e) => handleSubmit(e, e.target)} noValidate>
           <StyledInputCont
             text="Name"
-            inputType="text"
             isRequired
-            inputHandler={nameHandler}
+            inputType="text"
+            errorHandler={nameHandler}
             formSubmitted={formSubmitted}
           />
           <StyledInputCont
             text="Subject"
-            inputType="text"
             isRequired
-            inputHandler={subjectHandler}
+            inputType="text"
+            errorHandler={subjectHandler}
             formSubmitted={formSubmitted}
           />
           <StyledInputCont
             text="Email Address"
-            inputType="email"
             isRequired
-            inputHandler={emailHandler}
+            inputType="email"
+            errorHandler={emailHandler}
             formSubmitted={formSubmitted}
           />
           <StyledMessageCont
-            text="Message"
             isRequired
+            text="Message"
             inputHandler={messageHandler}
             formSubmitted={formSubmitted}
           />
