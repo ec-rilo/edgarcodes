@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, ChangeEvent, useCallback } from 'react';
 import styled from 'styled-components';
 
 // Components
@@ -22,43 +22,44 @@ interface InputContProps {
   readonly text: string;
   readonly inputType: string;
   readonly isRequired?: boolean;
-  readonly inputHandler: Function;
+  readonly errorHandler: Function;
   readonly formSubmitted: boolean;
 };
 
 const InputCont = ({
-  className, text, inputType, isRequired, inputHandler, formSubmitted,
+  className, text, inputType, isRequired, errorHandler, formSubmitted,
 }: InputContProps) => {
   const [userInput, setUserInput] = useState('');
   const [isActive, setIsActive] = useState(false);
-  const [isDefault, setIsDefault] = useState(true);
   const [isValid, setIsValid] = useState(false);
-  const [builtInValidity, setBuiltInValidity] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
-  const inputElem = useRef(null);
+  const inputElem = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
-    if (userInput.length === 0) {
-      setIsDefault(true);
-    } else if (userInput.length > 0) {
-      setIsDefault(false);
+  const checkValidity = (val:string, isValid:boolean) => {
+    if (val.length === 0) return false;
+    const validationResult = errorHandler(val, isValid);
+    return validationResult;
+  };
+
+  const handleErrors = useCallback((elem: HTMLInputElement) => {
+    if (formSubmitted) {
+      setErrorMsg(elem.validationMessage)
     }
-  }, [userInput]);
+  }, [formSubmitted]);
 
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setUserInput(e.target.value);
+    const valid = checkValidity(e.target.value, e.target.checkValidity());
+    valid ? setIsValid(true) : setIsValid(false);
+    handleErrors(e.target);
+  };
+
+  // When form submits, this will show errors. If any.
   useEffect(() => {
-    if (userInput.length > 0) {
-      const validationResult = inputHandler(userInput, builtInValidity);
-      setIsValid(validationResult);
-    }
-
-  }, [userInput, inputHandler, builtInValidity]);
-
-  useEffect(() => {
-    if (inputElem !== null && formSubmitted) {
-      setErrorMsg(inputElem.current.validationMessage);
-    }
-  }, [formSubmitted, userInput]);
+    const { current } = inputElem;
+    if (current !== null) handleErrors(current);
+  }, [formSubmitted, handleErrors]);
 
   return (
     <div className={className}>
@@ -66,20 +67,17 @@ const InputCont = ({
         <StyledContainer>
           <StyledLabel
           isActive={isActive}
-          isDefault={isDefault}
+          isDefault={userInput.length === 0}
           isValid={isValid}
           htmlFor={text}
           >
             {text}
           </StyledLabel>
           <StyledInput
-            onChange={(e) => {
-              setUserInput(e.target.value);
-              setBuiltInValidity(e.target.checkValidity());
-            }}
+            onChange={(e) => handleChange(e)}
             onFocus={() => setIsActive(true)}
             onBlur={() => userInput.length === 0 && setIsActive(false)}
-            isDefault={isDefault}
+            isDefault={userInput.length === 0}
             isValid={isValid}
             type={inputType}
             required={isRequired}
@@ -88,7 +86,7 @@ const InputCont = ({
             ref={inputElem}
           />
         </StyledContainer>
-        <StyledBorder isActive={isActive} isDefault={isDefault} isValid={isValid} />
+        <StyledBorder isActive={isActive} isDefault={userInput.length === 0} isValid={isValid} />
       </div>
       <StyledErrorMsg visible={formSubmitted}>{errorMsg}</StyledErrorMsg>
     </div>
