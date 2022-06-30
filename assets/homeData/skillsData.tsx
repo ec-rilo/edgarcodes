@@ -1,7 +1,7 @@
 const skillsArr = [
   'JavaScript',
   'React',
-  'Styled-Components',
+  'AWS',
   'PostgreSQL',
   'Styled-Components',
   'MongoDB',
