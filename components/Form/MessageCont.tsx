@@ -35,30 +35,30 @@ const MessageCont = ({
 
   const textAreaElem = useRef<HTMLTextAreaElement>(null);
 
-  const checkValidity = (val:string, isValid:boolean) => {
-    if (val.length === 0) return false;
-    const validationResult = errorHandler(val, isValid);
-    return validationResult;
+  const handleErrors = (elem: HTMLTextAreaElement) => {
+    elem.setCustomValidity('');
+    const errorText = errorHandler(elem.value, elem.validationMessage);
+    errorText ? setIsValid(false) : setIsValid(true);
+    elem.setCustomValidity(errorText);
   };
 
-  const handleErrors = useCallback((elem: HTMLTextAreaElement) => {
+  const updateErrorMsg = useCallback((elem: HTMLTextAreaElement) => {
     if (formSubmitted) {
-      setErrorMsg(elem.validationMessage)
+      setErrorMsg(elem.validationMessage);
     }
   }, [formSubmitted]);
 
-  const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+  const handleValidation = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setUserInput(e.target.value);
-    const valid = checkValidity(e.target.value, e.target.checkValidity());
-    valid ? setIsValid(true) : setIsValid(false);
     handleErrors(e.target);
+    updateErrorMsg(e.target);
   };
 
   // When form submits, this will show errors. If any.
   useEffect(() => {
     const { current } = textAreaElem;
-    if (current !== null) handleErrors(current);
-  }, [formSubmitted, handleErrors]);
+    if (current !== null) updateErrorMsg(current);
+  }, [formSubmitted, updateErrorMsg]);
 
   return (
     <div className={className}>
@@ -76,7 +76,7 @@ const MessageCont = ({
           </div>
 
           <StyledTextArea
-            onChange={(e) => handleChange(e)}
+            onChange={(e) => handleValidation(e)}
             onFocus={() => setIsActive(true)}
             onBlur={() => userInput.length === 0 && setIsActive(false)}
             isDefault={userInput.length === 0}
