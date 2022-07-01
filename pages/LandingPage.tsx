@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 // Assets
 import viewport from '../viewportSizes';
-import imgSrc from '../public/images/women-walking-img.jpeg';
+import imgSrc from '../public/images/edgar_photograph.jpg';
 
 // Components
 import StyledSocialBanner from  '../components/SocialBanner/SocialBanner';

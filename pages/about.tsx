@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 // Assets
-import imgSrc from '../public/images/women-walking-img.jpeg';
+import imgSrc from '../public/images/edgar_photograph.jpg';
 
 // Components
 import {
