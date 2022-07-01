@@ -36,27 +36,27 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-        <link
-          rel="preconnect"
-          href="/fonts/Lato/Lato-Regular.ttf"
-          as="font"
-          type="font/ttf"
-          crossOrigin=""
-        />
-        <link
-          rel="preconnect"
-          href="/fonts/Lato/Lato-Bold.ttf"
-          as="font"
-          type="font/ttf"
-          crossOrigin=""
-        />
-        <link
-          rel="preconnect"
-          href="/fonts/Lato/Lato-Black.ttf"
-          as="font"
-          type="font/ttf"
-          crossOrigin=""
-        />
+          <link
+            rel="preload"
+            href="/fonts/Lato/Lato-Regular.ttf"
+            as="font"
+            type="font/ttf"
+            crossOrigin=""
+          />
+          <link
+            rel="preload"
+            href="/fonts/Lato/Lato-Bold.ttf"
+            as="font"
+            type="font/ttf"
+            crossOrigin=""
+          />
+          <link
+            rel="preload"
+            href="/fonts/Lato/Lato-Black.ttf"
+            as="font"
+            type="font/ttf"
+            crossOrigin=""
+          />
         </Head>
         <body>
           <Main />
