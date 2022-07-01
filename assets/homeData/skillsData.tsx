@@ -10,13 +10,20 @@ const skillsArr = [
 ];
 
 const descriptionArr = [
-  `I've taken courses that had an emphasis on understanding web
-  development technologies as well as the basics of computer science
-  concepts. After having pair programmed with many different people
-  and applied the web development concepts into many projects you can
-  now see my skills reflected on all new projects I've created.`,
-  `My favorite skill on this journey has been the endlesss learning.
-  Have a job available with tech not shown below? I'm ready.`,
+  `
+  I started programming years ago when I jumped into college with C++ where I
+  learned the fundamentals of programming. From there I was hooked. After work, I'd spend
+  my free time coding straight into the night going through a program called The Odin Project
+  where I learned the basics of HTML & CSS up to React and Firebase.
+  `,
+  `
+  I wanted to push my skills to the next level and through grit and determination was able to
+  graduate from Hack Reactor, an Advanced Software Engineering Immersive that pushed me to my limits.
+  I came out of the program refining the skills I knew and gained new ones.
+  `,
+  `
+  These skills are only a few of many I know! And it definitely won't stop here.
+  `,
 ];
 
 const skillsData = { skillsArr, descriptionArr}
