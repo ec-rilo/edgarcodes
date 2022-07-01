@@ -37,4 +37,21 @@ const StyledAnimateLi = styled.li`
   }}
 `;
 
-export { StyledAnimateImg, StyledAnimateLi };
+const StyledAnimateP = styled.p`
+  color: var(--clr-gainsboro);
+  transition: opacity 0.2s;
+  cursor: pointer;
+  ${({ content, index }: AnimateProps) => {
+    if (content[index].isActive === false) {
+      return `
+      opacity: .2;
+    `;
+    }
+  }}
+`;
+
+export {
+  StyledAnimateImg,
+  StyledAnimateLi,
+  StyledAnimateP
+};
