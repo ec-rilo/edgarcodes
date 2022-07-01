@@ -16,12 +16,8 @@ const hero = {
     `
     Threads was a e-commerce platform with a monolithic service as the Backend. The
     API had average query times of 1s per query on a variety of endpoints. I worked
-    on the backend alongside a team of engineers with Express, Postgresql, and
+    on the redesigning the backend alongside a team of engineers with Express, Postgresql, and
     React.
-    `,
-    `
-    This project required us to breakup the monolithic service into a series
-    of microservices. I was tasked with the product page microservice.
     `,
     `
     (React Components for this project were created by another team)
@@ -38,7 +34,7 @@ const purpose = {
   paragraphsArr: [
     `
     I needed to figure out how to lower the query times dramatically of the current
-    endpoints while only being given the given monolithic service as a reference point.
+    endpoints while only being given the monolithic service as a reference point.
     We had the freedom of choosing the services we needed to improve the query times.
     I heavily worked on autonomy, system design, and problem solving with this project
     since there was no roadmap on how to get this project done. Just a set of requirements.
