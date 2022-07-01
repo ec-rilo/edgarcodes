@@ -1,5 +1,6 @@
 import React, { useState, FormEvent } from 'react';
 import styled from 'styled-components';
+import emailjs from '@emailjs/browser';
 
 // Assets
 import {
@@ -7,7 +8,7 @@ import {
   subjectHandler,
   emailHandler,
   messageHandler,
-} from '../Form/formFuncs';
+} from '../../scripts/formFuncs';
 import viewport from '../../viewportSizes';
 
 // Components
@@ -44,9 +45,28 @@ interface ContactFormProps {
 function ContactForm ({ className }: ContactFormProps) {
   const [formSubmitted, setFormSubmitted] = useState(false); // form submit attempt
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>, form: EventTarget) => {
+  const sendEmail = (form: HTMLFormElement) => {
+    emailjs.sendForm(
+      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
+      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
+      form,
+      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+    )
+      .then(() => {
+        window.alert('Form submitted!');
+        form.reset();
+        setFormSubmitted(false);
+      })
+      .catch((error) => {
+        window.alert('Form Failed to submit, please try again later.');
+        console.log(error.text);
+      });
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>, form: HTMLFormElement) => {
     e.preventDefault();
-  }
+    if (form.checkValidity()) sendEmail(form);
+  };
 
   return (
     <div className={className} id="contact">
@@ -65,7 +85,7 @@ function ContactForm ({ className }: ContactFormProps) {
       </StyledTextCont>
 
       <StyledFormCont>
-        <StyledForm onSubmit={(e) => handleSubmit(e, e.target)} noValidate>
+        <StyledForm onSubmit={(e) => handleSubmit(e, e.target as HTMLFormElement)} noValidate>
           <StyledInputCont
             text="Name"
             isRequired
