@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// Assets
+import projectsArr from '../assets/homeData/projectsData';
+
 // Components
 import { StyledPageTitle, StyledParagraph } from '../components/LandingPage/ElementComponents';
 import StyledProjectItem from '../components/ProjectCard/ProjectItem';
@@ -13,30 +16,9 @@ const StyledProjectsContainer = styled.ul`
   margin: 50px 0;
 `;
 
-interface StaticImageData {
-  src: string;
-  height: number;
-  width: number;
-};
-
-interface ProjectProps {
-  readonly title: string;
-  readonly category: string;
-  readonly textContent: string;
-  readonly src: string | StaticImageData;
-  readonly alt: string;
-  readonly isSelectable: boolean;
-  readonly important: boolean;
-  readonly cover?: boolean;
-}
-
-interface ProjectsPageProps {
-  readonly projectsArr: ProjectProps[];
-}
-
-const ProjectsPage = ({ projectsArr }: ProjectsPageProps) => {
+const ProjectsPage = () => {
   return (
-    <section style={{ padding: '12% 0%' }} id="work">
+    <div style={{ padding: '12% 0%' }} id="work">
       <div style={{ maxWidth: '600px' }}>
         <StyledPageTitle>What I&apos;ve been up to</StyledPageTitle>
         <StyledParagraph>
@@ -53,7 +35,7 @@ const ProjectsPage = ({ projectsArr }: ProjectsPageProps) => {
           );
         })}
       </StyledProjectsContainer>
-    </section>
+    </div>
   );
 };
 

@@ -3,7 +3,6 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 
 // Assets
-import projectsArr from '../assets/homeData/projectsData';
 import skillsData from '../assets/homeData/skillsData';
 
 // Components
@@ -30,7 +29,7 @@ const Home: NextPage = () => {
         skillsArr={skillsData.skillsArr}
         paragraphsArr={skillsData.descriptionArr}
       />
-      <ProjectsPage projectsArr={projectsArr} />
+      <ProjectsPage />
       <StyledContactForm />
       <StyledFooter />
     </StyledContainer>
