@@ -61,6 +61,18 @@ const InputCont = ({
     if (current !== null) updateErrorMsg(current);
   }, [formSubmitted, updateErrorMsg]);
 
+  const resetValues = () => {
+    setUserInput('');
+    setIsActive(false);
+    setIsValid(false);
+    setErrorMsg('');
+  };
+
+  // Resets values back to default on form submit.
+  useEffect(() => {
+    if (!formSubmitted) resetValues();
+  }, [formSubmitted]);
+
   return (
     <div className={className}>
       <div style={{ position: "relative" }}>
