@@ -9,7 +9,7 @@ import StyledContainer from '../../components/Container';
 import StyledNavCont from '../../components/NavBar/NavBar';
 import StyledHeroPage from '../../components/SingleProject/HeroPage';
 import StyledStatementCont from '../../components/SingleProject/StatementCont';
-import StyledSkillsPage from '../SkillsPage';
+import StyledSkillsComponent from '../../components/Skills/Skills';
 import StyledImgs from '../../components/SingleProject/Imgs';
 import StyledMoreImgs from '../../components/SingleProject/MoreImgs';
 import StyledContactForm from '../../components/Form/ContactForm';
@@ -37,7 +37,7 @@ function AtelierProjectPage () {
         paragraphsArr={data.purpose.paragraphsArr}
         cover={data.purpose.cover}
       />
-      <StyledSkillsPage
+      <StyledSkillsComponent
         title="Tech Stack and Explanation"
         skillsArr={data.skills.skillsArr}
         paragraphsArr={data.skills.paragraphsArr}

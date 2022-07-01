@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 // Assets
-import viewport from '../viewportSizes';
+import viewport from '../../viewportSizes';
 
 interface ItemProps {
   readonly className?: string;

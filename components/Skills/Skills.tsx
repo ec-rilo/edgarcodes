@@ -6,8 +6,8 @@ import {
   StyledParagraph,
   StyledPageTitle,
   StyledSection,
-} from '../components/LandingPage/ElementComponents';
-import StyledSkillsBanner from '../components/SkillsBanner';
+} from '../LandingPage/ElementComponents';
+import StyledSkillsBanner from './SkillsBanner';
 
 const StyledTextCont = styled(StyledSection)`
   gap: 30px;
@@ -15,7 +15,7 @@ const StyledTextCont = styled(StyledSection)`
   max-width: 700px;
 `;
 
-interface SkillsPageProps {
+interface SkillsComponentProps {
   readonly className?: string;
   readonly title: string;
   readonly skillsArr: string[];
@@ -23,9 +23,9 @@ interface SkillsPageProps {
   readonly noPadding?: boolean;
 };
 
-const SkillsPage = ({
+const SkillsComponent = ({
   className, title, skillsArr, paragraphsArr,
-}: SkillsPageProps) => (
+}: SkillsComponentProps) => (
     <div className={className}>
       <StyledPageTitle>{title}</StyledPageTitle>
       <StyledTextCont>
@@ -37,9 +37,9 @@ const SkillsPage = ({
     </div>
 );
 
-const StyledSkillsPage = styled(SkillsPage)`
+const StyledSkillsComponent = styled(SkillsComponent)`
   padding: 12% 0%;
   ${({ noPadding }) => noPadding && 'padding: 0;'}
 `;
 
-export default StyledSkillsPage;
+export default StyledSkillsComponent;

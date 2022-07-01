@@ -10,7 +10,7 @@ import skillsData from '../assets/homeData/skillsData';
 import StyledContainer from '../components/Container';
 import StyledNavCont from '../components/NavBar/NavBar';
 import StyledLandingPage from './LandingPage';
-import StyledSkillsPage from './SkillsPage';
+import StyledSkillsComponent from '../components/Skills/Skills';
 import ProjectsPage from './work';
 import StyledContactForm from '../components/Form/ContactForm';
 import StyledFooter from '../components/Footer';
@@ -25,7 +25,7 @@ const Home: NextPage = () => {
       </Head>
       <StyledNavCont />
       <StyledLandingPage />
-      <StyledSkillsPage
+      <StyledSkillsComponent
         title="My Skills"
         skillsArr={skillsData.skillsArr}
         paragraphsArr={skillsData.descriptionArr}
