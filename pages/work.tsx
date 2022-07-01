@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Head from 'next/head';
 
 // Assets
 import projectsArr from '../assets/homeData/projectsData';
@@ -19,6 +20,11 @@ const StyledProjectsContainer = styled.ul`
 const ProjectsPage = () => {
   return (
     <div style={{ padding: '12% 0%' }} id="work">
+      <Head>
+        <title>Edgar Carrillo | Full Stack Developer</title>
+        <meta name="description" content="Edgar Carrillo's personal portfolio, Hack Reactor Graduate in Humboldt County, CA." />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <div style={{ maxWidth: '600px' }}>
         <StyledPageTitle>What I&apos;ve been up to</StyledPageTitle>
         <StyledParagraph>

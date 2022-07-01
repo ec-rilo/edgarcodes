@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
+import Head from 'next/head';
 
 // Assets
 import viewport from '../viewportSizes';
@@ -48,6 +49,11 @@ interface LandingPageProps {
 function LandingPage ({ className }: LandingPageProps) {
   return (
     <div className={className}>
+      <Head>
+        <title>Edgar Carrillo | Full Stack Developer</title>
+        <meta name="description" content="Edgar Carrillo's personal portfolio, Hack Reactor Graduate in Humboldt County, CA." />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <StyledContainer>
         <StyledSocialBanner />
         <StyledContentContainer />

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Head from 'next/head';
 
 // Assets
 import imgSrc from '../public/images/edgar_photograph.jpg';
@@ -56,6 +57,11 @@ const StyledTextCont = styled.div`
 function AboutPage() {
   return (
     <StyledContainer>
+      <Head>
+        <title>Edgar Carrillo | Full Stack Developer</title>
+        <meta name="description" content="Edgar Carrillo's personal portfolio, Hack Reactor Graduate in Humboldt County, CA." />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <StyledNavCont />
       <StyledHero>
         <StyledTitle>I build solutions<br></br>to complex problems</StyledTitle>

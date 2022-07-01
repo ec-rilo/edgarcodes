@@ -22,7 +22,7 @@ function GPTProjectPage () {
     <StyledContainer>
       <Head>
         <title>Edgar Carrillo | Full Stack Developer</title>
-        <meta name="Personal Portfolio" content="#" />
+        <meta name="description" content="Edgar Carrillo's personal portfolio, Hack Reactor Graduate in Humboldt County, CA." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <StyledNavCont />
