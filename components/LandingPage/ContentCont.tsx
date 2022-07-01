@@ -27,13 +27,15 @@ const ContentContainer = ({ className }: ContentContainerProps) => {
       </div>
       <StyledSection>
         <StyledParagraph>
-          Hey there! My name is Edgar. I&apos;m a Humboldt County, CA based{' '}
+          Hey there! My name&apos;s Edgar. I&apos;m a Humboldt County, CA based{' '}
           <StyledEmphasisWord>Full Stack Engineer</StyledEmphasisWord>.
         </StyledParagraph>
         <StyledParagraph>
-          I&apos;ve had a passion for solving problems and design since I was young
-          and when I started tinkering with html / css I was interested, once I
-          jumped into the logic side I was hooked.
+          I&apos;m a problem solver, dog lover, orange juice drinking Software Engineer! I&apos;m
+          always interested in hearing about new project ideas and how I can help make them a reality.
+        </StyledParagraph>
+        <StyledParagraph>
+          Have something for me? Feel free to email me directly or fill out the contact form below!
         </StyledParagraph>
       </StyledSection>
       <div>
