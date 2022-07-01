@@ -57,6 +57,7 @@ class MyDocument extends Document {
             type="font/ttf"
             crossOrigin=""
           />
+          <link rel="icon" href="/images/logo.svg" />
         </Head>
         <body>
           <Main />

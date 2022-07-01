@@ -23,7 +23,6 @@ const ProjectsPage = () => {
       <Head>
         <title>Edgar Carrillo | Full Stack Developer</title>
         <meta name="description" content="Edgar Carrillo's personal portfolio, Hack Reactor Graduate in Humboldt County, CA." />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <div style={{ maxWidth: '600px' }}>
         <StyledPageTitle>What I&apos;ve been up to</StyledPageTitle>
