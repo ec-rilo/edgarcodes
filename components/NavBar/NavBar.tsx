@@ -10,7 +10,7 @@ import viewport from '../../viewportSizes';
 import StyledLogo from '../Logo';
 import StyledHamBtnContainer from './HamBtnCont';
 import StyledDropDownMenu from './DropDown';
-import { StyledAnimateLi } from '../AnimateComponents';
+import { StyledAnimateP } from '../AnimateComponents';
 
 interface MenuContainerProps {
   readonly className?: string;
@@ -19,29 +19,45 @@ interface MenuContainerProps {
 
 const MenuContainer = ({ className, menuItems }: MenuContainerProps) => {
   const data = useAnimate(menuItems.map((item) => {
-    return { name: item.name, isActive: true, link: item.link };
+    let newItem = { isActive: true };
+    return Object.assign(newItem, item);
   }));
 
   interface itemProps {
-    name: string;
-    isActive: boolean;
-    link: string;
-  }
+    readonly name: string;
+    readonly isActive: boolean;
+    readonly link: string;
+    readonly externalLink?: string;
+  };
 
   return (
     <ul className={className}>
       {data.content.map((item: itemProps, index: number) => {
         return (
-          <Link key={index} href={`${item.link}`}>
-            <StyledAnimateLi
-              onMouseEnter={() => data.setOneActive(index)}
-              onMouseLeave={() => data.setAllActive()}
-              content={data.content}
-              index={index}
-            >
-              {item.name}
-            </StyledAnimateLi>
-          </Link>
+          <li key={index}>
+            {!item.externalLink
+              ? <Link href={`${item.link}`}>
+                  <StyledAnimateP
+                    onMouseEnter={() => data.setOneActive(index)}
+                    onMouseLeave={() => data.setAllActive()}
+                    content={data.content}
+                    index={index}
+                  >
+                    {item.name}
+                  </StyledAnimateP>
+                </Link>
+              : <a href={item.externalLink} target="_blank" rel="noreferrer">
+                  <StyledAnimateP
+                    onMouseEnter={() => data.setOneActive(index)}
+                    onMouseLeave={() => data.setAllActive()}
+                    content={data.content}
+                    index={index}
+                  >
+                    {item.name}
+                  </StyledAnimateP>
+                </a>
+            }
+          </li>
         );
       })}
     </ul>
@@ -59,8 +75,9 @@ const StyledMenuContainer = styled(MenuContainer)`
 `;
 
 interface MenuItem {
-  name: string;
-  link: string;
+  readonly name: string;
+  readonly link: string;
+  readonly externalLink?: string;
 };
 
 interface NavProps {
@@ -95,7 +112,7 @@ const StyledNav = styled(Nav)`
 `;
 
 interface NavContProps {
-  className?: string,
+  readonly className?: string,
 };
 
 const NavCont = ({ className }: NavContProps) => {
@@ -103,8 +120,12 @@ const NavCont = ({ className }: NavContProps) => {
   const [menuItems] = useState([
     { name: 'work', link: '/#work' },
     { name: 'about', link: '/about' },
-    { name: 'contact', link: '/#contact'},
-    { name: 'resume', link: '#'},
+    { name: 'contact', link: '/#contact' },
+    {
+      name: 'resume',
+      link: '#',
+      externalLink: 'https://drive.google.com/file/d/1XdFtzVUpkzrw57-RsMmtEN02vn1nVl2H/view',
+    },
   ]);
 
   return (

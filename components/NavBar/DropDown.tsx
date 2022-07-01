@@ -7,7 +7,7 @@ import useAnimate from '../../assets/hooks/useAnimate';
 import viewport from '../../viewportSizes';
 
 // components
-import { StyledAnimateLi } from '../AnimateComponents';
+import { StyledAnimateP } from '../AnimateComponents';
 
 const StyledList = styled.ul`
   display: flex;
@@ -21,8 +21,9 @@ const StyledList = styled.ul`
 `;
 
 interface MenuItem {
-  name: string;
-  link: string;
+  readonly name: string;
+  readonly link: string;
+  readonly externalLink?: string;
 };
 
 interface DropDownMenuProps {
@@ -33,13 +34,15 @@ interface DropDownMenuProps {
 
 const DropDownMenu = ({ className, hamIsActive, menuItems }: DropDownMenuProps) => {
   const data = useAnimate(menuItems.map((item) => {
-    return { name: item.name, isActive: true, link: item.link};
+    let newItem = { isActive: true };
+    return Object.assign(newItem, item);
   }));
 
   interface itemProps {
-    name: string;
-    isActive: boolean;
-    link: string;
+    readonly name: string;
+    readonly isActive: boolean;
+    readonly link: string;
+    readonly externalLink?: string;
   };
 
   return (
@@ -47,16 +50,30 @@ const DropDownMenu = ({ className, hamIsActive, menuItems }: DropDownMenuProps) 
       <StyledList>
         {data.content.map((item: itemProps, index: number) => {
           return (
-            <Link key={index} href={`${item.link}`}>
-              <StyledAnimateLi
-                onMouseEnter={() => data.setOneActive(index)}
-                onMouseLeave={() => data.setAllActive()}
-                content={data.content}
-                index={index}
-              >
-                {item.name}
-              </StyledAnimateLi>
-            </Link>
+            <li key={index}>
+              {!item.externalLink
+                ? <Link href={`${item.link}`}>
+                    <StyledAnimateP
+                      onMouseEnter={() => data.setOneActive(index)}
+                      onMouseLeave={() => data.setAllActive()}
+                      content={data.content}
+                      index={index}
+                    >
+                      {item.name}
+                    </StyledAnimateP>
+                  </Link>
+                : <a href={item.externalLink} target="_blank" rel="noreferrer">
+                    <StyledAnimateP
+                      onMouseEnter={() => data.setOneActive(index)}
+                      onMouseLeave={() => data.setAllActive()}
+                      content={data.content}
+                      index={index}
+                    >
+                      {item.name}
+                    </StyledAnimateP>
+                  </a>
+              }
+            </li>
           );
         })}
       </StyledList>
