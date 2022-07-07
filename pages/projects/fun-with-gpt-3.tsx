@@ -21,7 +21,7 @@ function GPTProjectPage () {
   return (
     <StyledContainer>
       <Head>
-        <title>Edgar Carrillo | Full Stack Developer</title>
+        <title>Edgar Carrillo | Fun with GPT-3</title>
         <meta name="description" content="Edgar Carrillo's personal portfolio, Hack Reactor Graduate in Humboldt County, CA." />
       </Head>
       <StyledNavCont />

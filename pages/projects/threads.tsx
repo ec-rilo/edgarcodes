@@ -21,7 +21,7 @@ function ThreadsProjectPage () {
   return (
     <StyledContainer>
       <Head>
-        <title>Edgar Carrillo | Full Stack Developer</title>
+        <title>Edgar Carrillo | Threads</title>
         <meta name="description" content="Edgar Carrillo's personal portfolio, Hack Reactor Graduate in Humboldt County, CA." />
       </Head>
       <StyledNavCont />
