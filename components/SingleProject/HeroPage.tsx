@@ -48,7 +48,7 @@ function HeroPage ({ className, data }: HeroPageProps) {
     <div className={className}>
       <StyledContentCont data={data} />
       <StyledImgCont>
-        <Image src={data.imgSrc} alt="#" layout="fill" objectFit={data.cover ? 'cover' : 'contain'} />
+        <Image src={data.imgSrc} alt="#" layout="fill" objectFit={data.cover ? 'cover' : 'contain'} priority />
       </StyledImgCont>
     </div>
   )

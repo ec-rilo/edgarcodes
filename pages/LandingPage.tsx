@@ -59,7 +59,7 @@ function LandingPage ({ className }: LandingPageProps) {
       </StyledContainer>
 
       <StyledImgContainer>
-        <Image src={imgSrc} alt="Women Walking in forest" layout="fill" objectFit="cover"/>
+        <Image src={imgSrc} alt="Women Walking in forest" layout="fill" objectFit="cover" priority />
       </StyledImgContainer>
     </div>
   )
